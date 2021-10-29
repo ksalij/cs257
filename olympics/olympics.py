@@ -63,6 +63,7 @@ try:
 except Exception as e:
     print(e)
     exit()
+print(cursor)
 
 
 for row in cursor:
