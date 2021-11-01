@@ -1,0 +1,26 @@
+Kiri Salij and Lysander Miller
+Software Design Fall 2021
+
+
+Dataset Description: Our dataset is a dataset of information from the passengers of the Titanic.
+Each row includes a passenger id, whether the passenger survived, passenger class, name, sex, 
+age, number of siblings/spouses aboard, number of parents/children aboard, ticket, fare, cabin,
+and port of embarkation. You can access the dataset on kaggle at this url:
+https://www.kaggle.com/c/titanic/data?select=train.csv
+
+Story: A casual user that wants to explore and learn a little bit about the Titanic. They aren’t really searching for anything in particular.
+
+Implementation: Our homepage will have some basic information about the passengers on the Titanic that’s presented in an interesting way. For example, there will be three modes, “Light,” “Dark,” and “All” presented in a box at the top of the screen. If they choose all, then they’ll get some basic information on all of the passengers. If they chose light, they’ll receive basic information on the passengers that survived. If they choose dark, they’ll receive basic information on the passengers that passed away. This basic information will mainly consist of how many men and how many women were passengers, number of passengers as divided by age, and numbers regarding what class (1st, 2nd, or 3rd) the passenger was in. This will mainly be shown by hovering over various images.
+
+Story: A titanic researcher wants to know some in depth information about the passengers of the Titanic. For example, they might want to gather information about where the people were in the ship (what class and cabin) and whether or not they survived.
+
+Implementation: This can be seen by going to the homepage and clicking on “Light” mode. Then, hovering over the picture of various segments of a ship to see how many passengers from that segment of the ship (AKA class) survived.
+
+Story: A person is trying to find information about a specific family member of theirs that was on the Titanic.
+
+Implementation: If they have some information about that family member, they can navigate over to the search function. They can then use a string and search by a variety of categories, such as name, class, etc. This will provide a string of output related to the search with information such as passenger name, sex, age, class, and died/survived.
+
+Story: A person interested in learning about the economy and prices in the early 1910’s who’s come to look at the information surrounding ticket prices relative to where the passenger boarded the ship and what class they were (1st, 2nd, 3rd).
+
+Implementation: They should first navigate to the page labeled price. Then they can look at the various graphs provided that will give information about price of the tickets based on location departed from and class.
+
