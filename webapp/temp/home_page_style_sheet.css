@@ -1,0 +1,103 @@
+/* Horizontal navigation */
+img.search{
+	width:50px;
+	height:50px;
+	float:left;
+}
+
+h1.home{
+	float:left;
+	font-size: 20px;
+	border:black;
+	border-style:solid;
+	padding:5px 5px;
+}
+
+h1.home:hover {
+	background-color: #555;
+	color: white;
+}
+
+ul.horizontal-navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+ul.horizontal-navbar li {
+	float: right;
+}
+
+ul.horizontal-navbar li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul.horizontal-navbar li a:hover {
+	background-color: #555;
+	color: white;
+}
+
+ul.buttons {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	background-color: white;
+}
+
+ul.buttons li{
+	float: right;
+	width: 370px;
+}
+
+ul.buttons li b{
+	display:block;
+	background-color:white;
+	border: black;
+	border-style: solid;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+ul.buttons li b:hover {
+	background-color: #555;
+	color: white;
+}
+
+h1 {
+	text-align: center;
+}
+
+img.titanic {
+	padding-top:50px;
+	width:50%;
+	margin:auto;
+	display:block;
+	padding-bottom: 50px;
+}
+
+img.men_and_women {
+	height:25%;
+	width:25%;
+	float:left;
+	margin-left: 200px;
+	display:block;
+}
+
+img.ages {
+	float: right;
+	margin-right: 100px;
+	height: 300px;
+	width: 600px;
+}
+
