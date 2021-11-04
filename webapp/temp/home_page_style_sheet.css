@@ -1,8 +1,9 @@
 /* Horizontal navigation */
 img.search{
 	width:50px;
-	height:50px;
+	height:30px;
 	float:left;
+	padding-top: 5px;
 }
 
 h1.home{
@@ -43,7 +44,7 @@ ul.horizontal-navbar li a:hover {
 	color: white;
 }
 
-ul.buttons {
+ul.buttons{
 	list-style-type:none;
 	margin:0;
 	padding:0;
@@ -51,9 +52,28 @@ ul.buttons {
 	background-color: white;
 }
 
-ul.buttons li{
+ul.mode li{
 	float: right;
 	width: 370px;
+}
+
+ul.classes li{
+	float: right;
+	width: 100px;
+	padding-top: 100px;
+}
+
+ul.sex li{
+	float:right;
+	width: 100px;
+	padding-top: 100px;
+}
+
+ul.ages li{
+	float:right;
+	width:100px;
+	padding-top: 20px;
+	margin-top: 30px;
 }
 
 ul.buttons li b{
@@ -74,13 +94,17 @@ ul.buttons li b:hover {
 	color: white;
 }
 
+
 h1 {
 	text-align: center;
 }
 
 img.titanic {
+	float: left;
 	padding-top:50px;
-	width:50%;
+	padding-left:225px;
+	width:400px;
+	height: 500px;
 	margin:auto;
 	display:block;
 	padding-bottom: 50px;
@@ -90,14 +114,43 @@ img.men_and_women {
 	height:25%;
 	width:25%;
 	float:left;
-	margin-left: 200px;
+	padding-top: 100px;
+	padding: 80px;
+	padding-bottom: 200px;
 	display:block;
+	margin-left: -500px;
 }
 
 img.ages {
-	float: right;
-	margin-right: 100px;
+	float: left;
+	margin-right: 0px;
 	height: 300px;
 	width: 600px;
+	padding-top: 200px;
 }
 
+p.textbox{
+	float: right;
+	text-align:center;
+	border-style: solid;
+	padding-top: 30px;
+	border-radius:4px;
+	font-size:16px;
+	text-vertical-align:middle;
+	margin-right: 100px;
+	width:380px;
+	height:525px;
+	padding-right: 100px;
+}
+
+p.small{
+	height:250px;
+	width: 500px;
+	padding: 0px;
+}
+
+p.medium{
+	padding:0px;
+	width:500px;
+	height: 520px;
+}
