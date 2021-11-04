@@ -44,36 +44,6 @@ ul.horizontal-navbar li a:hover {
 	color: white;
 }
 
-ul.buttons {
-	list-style-type:none;
-	margin:0;
-	padding:0;
-	overflow: hidden;
-	background-color: white;
-}
-
-ul.buttons li{
-	float: right;
-	width: 370px;
-}
-
-ul.buttons li b{
-	display:block;
-	background-color:white;
-	border: black;
-	border-style: solid;
-	color: black;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-}
-
-ul.buttons li b:hover {
-	background-color: #555;
-	color: white;
-}
 
 h1 {
 	text-align: center;
