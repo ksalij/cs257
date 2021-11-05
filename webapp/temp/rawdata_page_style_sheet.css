@@ -3,8 +3,11 @@ img.search{
 	width:50px;
 	height:30px;
 	float:left;
-	padding-top: 10px;
+	padding-top:10px;
 }
+
+
+
 
 h1.home{
 	float:left;
@@ -12,7 +15,6 @@ h1.home{
 	border:black;
 	border-style:solid;
 	padding:5px 5px;
-	text-decoration: none;
 }
 
 /*Home button link style */
@@ -61,58 +63,39 @@ ul.horizontal-navbar li a:hover {
 	color: white;
 }
 
-
-h1 {
+h1{
 	text-align: center;
-}
-
-.chart {
-	height: 25%;
-	width: 25%;
-	display: inline-block;
-}
-
-.chart_container {
-	display: flex;
-	border:5px solid black;
-	margin:auto;
-	margin-bottom: 10px;
-	padding: 15px;
-}
-
-/* Code from charts.css */
-.legend {
-  padding: 1rem;
-  border: 1px solid black;
-  list-style: none;
-  font-size: 1rem;
-}
-
-/* Code from charts.css */
-.legend li {
-  line-height: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-/* Code from charts.css */
-.legend li::before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-margin-end: .5rem;
-          margin-inline-end: .5rem;
-  border-width: 2px;
-  border-style: solid;
-	width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
 }
 
 p {
 	padding: 20px;
+	border: 3px solid black;
+	margin: 10px;
+	flex-grow: 1;
+}
+
+#sort-header {
+	background-color: midnightblue;
+	color: white;
+}
+
+.vertical-sort {
+	list-style-type: none;
+	text-align: center;
+	background-color: lightblue;
+	padding: 15px;
+}
+
+.vertical-sort li {
+	padding: 5px;
+}
+
+.vertical-sort li:hover {
+	background-color: blue;
+	color: white;
+	padding: 5px;
+}
+
+#layout {
+	display: flex;
 }
