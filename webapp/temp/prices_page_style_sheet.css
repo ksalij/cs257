@@ -1,8 +1,9 @@
 /* Horizontal navigation */
 img.search{
 	width:50px;
-	height:50px;
+	height:30px;
 	float:left;
+	padding-top: 10px;
 }
 
 h1.home{
@@ -93,22 +94,25 @@ ul.buttons li b:hover {
 	color: white;
 }
 
-h1 {
+h1, h3 {
 	text-align: center;
 }
 
 .chart {
-	height: 25%;
-	width: 25%;
-	display: inline-block;
+	height: 100%;
+	width: 100%;
 }
 
 .chart_container {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	border:5px solid black;
 	margin:auto;
 	margin-bottom: 10px;
-	padding: 15px;
+	margin-right: 10px;
+	padding: 10px;
+
 }
 
 /* Code from charts.css */
@@ -146,4 +150,9 @@ h1 {
 
 p {
 	padding: 20px;
+}
+
+#layout {
+	display: flex;
+	justify-content: center;
 }
