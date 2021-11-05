@@ -1,4 +1,28 @@
-/* Horizontal navigation */
+/*Code by Kiri Salij and Lysander Miller*/
+
+.home a:link {
+	text-decoration: none;
+	color: blue;
+}
+
+.home a:visited {
+	text-decoration: none;
+	color: blue;
+}
+
+.home a:hover {
+	text-decoration: underline;
+}
+
+.home a:active {
+	text-decoration: underline;
+}
+
+h1.home:hover {
+	background-color: #555;
+	color: white;
+}
+
 img.search{
 	width:50px;
 	height:30px;
