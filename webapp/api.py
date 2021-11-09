@@ -22,17 +22,15 @@ def get_connection():
                             user=config.user,
                             password=config.password)
 
-
-#I have yet to change this method Lysander, and but it's a placeholder for now
-#also check out jeff's code some more for how to code certain things
 @api.route('/all')
 def get_all_data():
     ''' Returns all of the data associated with each of the passengers
         in our database. Default, sorted by id number.
         Returns an empty list if there's any database failure.
+
+        id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
     '''
-    query = '''SELECT id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
-               FROM passenger_info ORDER BY id'''
+    query = '''SELECT * FROM passenger_info ORDER BY id'''
 
     passenger_list = []
     try:
@@ -40,16 +38,20 @@ def get_all_data():
         cursor = connection.cursor()
         cursor.execute(query, tuple())
         for row in cursor:
+            if row[5] is not None: #because some of the passengers don't have an age, and it messes with casting it as a float
+                age = float(row[5])
+            else:
+                age = row[5]
             passenger = {'id':row[0],
                       'survived':row[1],
                       'class':row[2],
                       'name':row[3],
                       'sex':row[4],
-                      'age':row[5],
+                      'age':age,
                       'sibsp':row[6],
                       'parch':row[7],
                       'ticket':row[8],
-                      'fare':row[9],
+                      'fare':float(row[9]),
                       'cabin':row[10],
                       'embarked':row[11]}
             passenger_list.append(passenger)
