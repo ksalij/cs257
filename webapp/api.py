@@ -25,44 +25,37 @@ def get_connection():
 
 #I have yet to change this method Lysander, and but it's a placeholder for now
 #also check out jeff's code some more for how to code certain things
-@api.route('/authors/')
-def get_authors():
-    ''' Returns a list of all the authors in our database. See
-        get_author_by_id below for description of the author
-        resource representation.
-
-        By default, the list is presented in alphabetical order
-        by surname, then given_name. You may, however, use
-        the GET parameter sort to request sorting by birth year.
-
-            http://.../authors/?sort=birth_year
-
+@api.route('/all')
+def get_all_data():
+    ''' Returns all of the data associated with each of the passengers
+        in our database. Default, sorted by id number.
         Returns an empty list if there's any database failure.
     '''
-    query = '''SELECT id, given_name, surname, birth_year, death_year
-               FROM authors ORDER BY '''
+    query = '''SELECT id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
+               FROM passenger_info ORDER BY id'''
 
-    sort_argument = flask.request.args.get('sort')
-    if sort_argument == 'birth_year':
-        query += 'birth_year'
-    else:
-        query += 'surname, given_name'
-
-    author_list = []
+    passenger_list = []
     try:
         connection = get_connection()
         cursor = connection.cursor()
         cursor.execute(query, tuple())
         for row in cursor:
-            author = {'id':row[0],
-                      'given_name':row[1],
-                      'surname':row[2],
-                      'birth_year':row[3],
-                      'death_year':row[4]}
-            author_list.append(author)
+            passenger = {'id':row[0],
+                      'survived':row[1],
+                      'class':row[2],
+                      'name':row[3],
+                      'sex':row[4],
+                      'age':row[5],
+                      'sibsp':row[6],
+                      'parch':row[7],
+                      'ticket':row[8],
+                      'fare':row[9],
+                      'cabin':row[10],
+                      'embarked':row[11]}
+            passenger_list.append(passenger)
         cursor.close()
         connection.close()
     except Exception as e:
         print(e, file=sys.stderr)
 
-    return json.dumps(author_list)
+    return json.dumps(passenger_list)
