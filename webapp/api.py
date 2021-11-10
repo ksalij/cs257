@@ -61,3 +61,4 @@ def get_all_data():
         print(e, file=sys.stderr)
 
     return json.dumps(passenger_list)
+

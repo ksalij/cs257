@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Titanic API</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+		<script type="text/javascript" src="static/titanic.js"></script>
 		<link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
 
 	</head>
@@ -20,8 +21,8 @@
 
 		<h2>Mock end-to-end</h2>
 		<div id="layout">
-			<button class="button"> Click for DATA! </button>
-			<p class="data"></p>
+			<button id= "get_info_button"> Click for DATA! </button>
+			<table id="data_table"></table>
 		</div>
 	</body>
 </html>
