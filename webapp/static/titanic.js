@@ -3,17 +3,73 @@
  * Kiri Salij and Lysander Miller, 9 November 2021
  */
 
+deceased = false;
+alive = false;
+all = false;
 window.onload = initialize;
 
 function initialize() {
-    let getInfoButton = document.getElementById('get_info_button');
-    getInfoButton.onclick = onButtonClicked;
+	let deceasedButton = document.getElementById('deceased');
+	deceasedButton.onclick = onDeceasedButtonClicked;
+	let aliveButton = document.getElementById('alive');
+	aliveButton.onclick = onAliveButtonClicked;
+	let allButton = document.getElementById('all');
+	allButton.onclick = onAllButtonClicked;
+	let firstClassButton = document.getElementById('firstClass');
+	firstClassButton.onclick = onFirstClassButtonClicked;
+	let secondClassButton = document.getElementById('secondClass');
+	secondClassButton.onclick = onSecondClassButtonClicked;
+	let thirdClassButton = document.getElementById('thirdClass');
+	thirdClassButton.onclick = onThirdClassButtonClicked;
 }
 
 // Returns the base URL of the API, onto which endpoint components can be appended.
 function getAPIBaseURL() {
 	var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/api';
 	return baseURL;
+}
+
+function onDeceasedButtonClicked() {
+	alive = false;
+	all = false;
+	deceased = true;
+}
+
+function onAliveButtonClicked() {
+	alive = true;
+	all = false;
+	deceased = false;
+}
+
+function onAllButtonClicked() {
+	alive = false;
+	deceased = false;
+	all = true;
+}
+
+function onFirstClassButtonClicked() {
+	var url = getAPIBaseURL();
+	if (alive==true){
+		url += '/alive';
+	}
+	else if (all == true){
+		url += '/all';
+	}
+	else if (deceased == true){
+		url += '/deceased'
+	}
+	var classBoxElement = document.getElementById('class_box');
+	fetch(url, {method: 'get'})
+	.then((response) => response.json())
+	.then(function(firstClassList) {
+		var tableBody = 'hi';
+		if (classBoxElement) {
+			classBoxElement.innerHTML = tableBody;
+		}
+	})
+	.catch(function(error) {
+		console.log(error);
+	});
 }
 
 function onButtonClicked() {
