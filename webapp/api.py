@@ -123,11 +123,15 @@ def get_count(status):
 
 @api.route('/search/<search_term>')
 def search_passengers(search_term):
-    ''' Returns all the passengers with names that include the search term'''
+    ''' Returns all the passengers with names that include the search term
+        Case insensitive!
+    '''
 
-    like_clause = ' \'%' + search_term + '%\' '
+    like_clause = '%' + search_term.lower() + '%'
+
     query = '''SELECT id, survived, class, name, sex
-            WHERE name LIKE %s;
+            FROM passenger_info
+            WHERE LOWER(name) LIKE %s;
             '''
     print(query)
     print(like_clause)
@@ -150,3 +154,7 @@ def search_passengers(search_term):
         print(e, file=sys.stderr)
 
     return json.dumps(passenger_list)
+
+@api.route('/help')
+def get_help():
+    
