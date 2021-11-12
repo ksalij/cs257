@@ -11,7 +11,7 @@ window.onload = initialize;
 function initialize() {
 	let deceasedButton = document.getElementById('deceased');
 	deceasedButton.onclick = onDeceasedButtonClicked;
-	let aliveButton = document.getElementById('alive');
+	let aliveButton = document.getElementById('survivors');
 	aliveButton.onclick = onAliveButtonClicked;
 	let allButton = document.getElementById('all');
 	allButton.onclick = onAllButtonClicked;
@@ -58,13 +58,14 @@ function onFirstClassButtonClicked() {
 	else if (deceased == true){
 		url += '/deceased'
 	}
-	var classBoxElement = document.getElementById('class_box');
+	var classTableElement = document.getElementById('class_table');
 	fetch(url, {method: 'get'})
 	.then((response) => response.json())
 	.then(function(firstClassList) {
-		var tableBody = 'hi';
-		if (classBoxElement) {
-			classBoxElement.innerHTML = tableBody;
+		var tableBody = '';
+		tableBody += '<tr><th>ID</th><th>Survived</th><th>Class</th><th>Name</th><th>Sex</th><th>Age</th><th>Sibsp</th><th>Parch</th><th>Ticket</th><th>Fare</th><th>Cabin</th><th>Embarked</th>';
+		if (classTableElement) {
+			classTableElement.innerHTML = tableBody;
 		}
 	})
 	.catch(function(error) {
