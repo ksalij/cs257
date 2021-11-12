@@ -62,3 +62,62 @@ def get_all_data():
 
     return json.dumps(passenger_list)
 
+@api.route('/count/<status>/') #NEED TO FIX!!! Does not currently include anyone who has a null age
+def get_count(status):
+    ''' Returns a json list of various data associated with the passengers who
+        survived. By default it returns the total number of inidivduals of the
+        specifed status, either all, alive, or dead.
+
+        Class, sex, and age can be specified with
+        ?class=
+        ?sex=
+        ?start_age=
+        ?end_age=
+        respectfully, with each of the specifications going after the equal sign.
+        Options include 1, 2, and 3 for class; male and female for sex; and
+        a start and end age for the age range.
+
+        id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
+    '''
+    query = '''SELECT COUNT(id) FROM passenger_info'''
+
+    if status == "alive":
+        query += ' WHERE survived=true'
+    elif status == 'dead':
+        query += ' WHERE survived=false'
+    else:
+        query += ' WHERE 1=1'
+
+    start_age = flask.request.args.get('start_age', default=0, type=int)
+    end_age = flask.request.args.get('end_age', default=10000, type=int)
+    query += ' AND age >= %s AND age <= %s' #Does not include null ages
+    tuple_arguments = [start_age, end_age]
+
+    pclass = flask.request.args.get('class')
+    if pclass is not None:
+        query += ' AND class=%s'
+        tuple_arguments.append(pclass)
+
+    sex = flask.request.args.get('sex')
+    if sex is not None:
+        query += ' AND sex=%s'
+        tuple_arguments.append(sex)
+
+
+    query += ';'
+    #print(query)
+    #print(tuple_arguments)
+    passenger_count = None
+    try:
+        connection = get_connection()
+        cursor = connection.cursor()
+        cursor.execute(query, tuple(tuple_arguments))
+
+        for row in cursor:
+            passenger_count = row[0]
+        cursor.close()
+        connection.close()
+    except Exception as e:
+        print(e, file=sys.stderr)
+
+    return json.dumps(passenger_count)
