@@ -62,7 +62,7 @@ def get_all_data():
 
     return json.dumps(passenger_list)
 
-@api.route('/count/<status>/') #NEED TO FIX!!! Does not currently include anyone who has a null age
+@api.route('/count/<status>/')
 def get_count(status):
     ''' Returns a json list of various data associated with the passengers who
         survived. By default it returns the total number of inidivduals of the
@@ -86,11 +86,12 @@ def get_count(status):
     elif status == 'dead':
         query += ' WHERE survived=false'
     else:
-        query += ' WHERE 1=1'
+        query += ' WHERE 1=1' #need something after the WHERE clause because of syntax
 
     start_age = flask.request.args.get('start_age', default=0, type=int)
     end_age = flask.request.args.get('end_age', default=10000, type=int)
-    query += ' AND age >= %s AND age <= %s' #Does not include null ages
+    if start_age != 0 or end_age != 10000:
+        query += ' AND age >= %s AND age <= %s' #Does not include null ages
     tuple_arguments = [start_age, end_age]
 
     pclass = flask.request.args.get('class')
@@ -103,7 +104,6 @@ def get_count(status):
         query += ' AND sex=%s'
         tuple_arguments.append(sex)
 
-
     query += ';'
     #print(query)
     #print(tuple_arguments)
@@ -112,7 +112,6 @@ def get_count(status):
         connection = get_connection()
         cursor = connection.cursor()
         cursor.execute(query, tuple(tuple_arguments))
-
         for row in cursor:
             passenger_count = row[0]
         cursor.close()
@@ -121,3 +120,33 @@ def get_count(status):
         print(e, file=sys.stderr)
 
     return json.dumps(passenger_count)
+
+@api.route('/search/<search_term>')
+def search_passengers(search_term):
+    ''' Returns all the passengers with names that include the search term'''
+
+    like_clause = ' \'%' + search_term + '%\' '
+    query = '''SELECT id, survived, class, name, sex
+            WHERE name LIKE %s;
+            '''
+    print(query)
+    print(like_clause)
+
+    passenger_list = []
+    try:
+        connection = get_connection()
+        cursor = connection.cursor()
+        cursor.execute(query, (like_clause,))
+        for row in cursor:
+            passenger = {'id':row[0],
+                      'survived':row[1],
+                      'class':row[2],
+                      'name':row[3],
+                      'sex':row[4]}
+            passenger_list.append(passenger)
+        cursor.close()
+        connection.close()
+    except Exception as e:
+        print(e, file=sys.stderr)
+
+    return json.dumps(passenger_list)
