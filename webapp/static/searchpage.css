@@ -1,0 +1,87 @@
+/* Horizontal navigation */
+img.search{
+	width:70px;
+	height:50px;
+	float:left;
+	margin-left: 100px;
+	padding-top:15px;
+}
+
+.search_bar{
+	margin-left:150px;
+	width: 70%;
+	margin-right: -30px;
+	font-size:40px;
+	border-style: solid;
+	border-color: black;
+}
+
+.results{
+	border-style:solid;
+	border-color: black;
+	height: 500px;
+	text-align: center;
+}
+
+
+h1.home{
+	float:left;
+	font-size: 20px;
+	border:black;
+	border-style:solid;
+	padding:5px 5px;
+}
+
+/*Home button link style */
+.home a:link {
+  text-decoration: none;
+	color: blue;
+}
+.home a:visited {
+  text-decoration: none;
+	color: blue;
+}
+.home a:hover {
+  text-decoration: underline;
+}
+.home a:active {
+  text-decoration: underline;
+}
+
+h1.home:hover {
+	background-color: #555;
+	color: white;
+}
+
+ul.horizontal-navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+ul.horizontal-navbar li {
+	float: right;
+}
+
+ul.horizontal-navbar li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul.horizontal-navbar li a:hover {
+	background-color: #555;
+	color: white;
+}
+
+h1{
+	text-align: center;
+}
+
+p {
+	padding: 20px;
+}
