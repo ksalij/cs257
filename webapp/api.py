@@ -38,7 +38,7 @@ def get_all_data():
 
     query = '''SELECT * FROM passenger_info'''
 
-    tuple_arguments = []
+    tuple_arguments = [] #list for all the arguments that will be inserted in the SQL query
     search_term = flask.request.args.get('search')
     if search_term is not None:
         like_clause = '%' + search_term.lower() + '%'
@@ -102,7 +102,7 @@ def get_count(status):
     else:
         query += ' WHERE 1=1' #need something after the WHERE clause because of syntax
 
-    tuple_arguments = []
+    tuple_arguments = [] #list for all the arguments that will be inserted in the SQL query
     start_age = flask.request.args.get('start_age', default=0, type=int)
     end_age = flask.request.args.get('end_age', default=10000, type=int)
     if start_age != 0 or end_age != 10000:
