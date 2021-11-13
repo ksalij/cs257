@@ -133,8 +133,8 @@ def search_passengers(search_term):
             FROM passenger_info
             WHERE LOWER(name) LIKE %s;
             '''
-    print(query)
-    print(like_clause)
+    #print(query)
+    # print(like_clause)
 
     passenger_list = []
     try:
@@ -157,4 +157,3 @@ def search_passengers(search_term):
 
 @api.route('/help')
 def get_help():
-    
