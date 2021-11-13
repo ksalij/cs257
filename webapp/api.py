@@ -36,16 +36,16 @@ def get_all_data():
         id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
     '''
 
-    query = '''SELECT * FROM passenger_info
-            ORDER BY id'''
+    query = '''SELECT * FROM passenger_info'''
 
     tuple_arguments = []
     search_term = flask.request.args.get('search')
     if search_term is not None:
         like_clause = '%' + search_term.lower() + '%'
-        query += ' WHERE LOWER(name) LIKE %s;'
+        query += ' WHERE LOWER(name) LIKE %s'
         tuple_arguments.append(like_clause)
 
+    query += 'ORDER BY id;'
     passenger_list = []
     try:
         connection = get_connection()

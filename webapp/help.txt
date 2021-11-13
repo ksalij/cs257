@@ -1,8 +1,8 @@
 REQUEST: /all/
 
 GET parameters
-    search_term (Optional, default: '') -- return only authors whose
-        first or last names contain search_text, case-insensitively
+    search (Optional) -- return only passengers whose names include the search
+        text provided
 
 RESPONSE: a JSON list of dictionaries, each of which represents one passenger,
 sorted by id number. Each dictionary in this list will have the following
@@ -13,18 +13,51 @@ fields.
    class -- (INTEGER) the passenger class of the passenger (1,2,or 3)
    name -- (TEXT) the full name of the passenger including title
    sex -- (TEXT) male or female
-   age -- (NUMERIC) age of the
-   sibsp -- (INTEGER)
-   parch -- (INTEGER)
-   ticket -- (TEXT)
-   fare -- (NUMERIC)
-   cabin -- (TEXT)
-   embarked -- (TEXT)
+   age -- (NUMERIC) age in years
+   sibsp -- (INTEGER) number of siblings/spouses aboard the titanic
+   parch -- (INTEGER) number of parents/children aboard the titanic
+   ticket -- (TEXT) ticket number
+   fare -- (NUMERIC) passenger fare
+   cabin -- (TEXT) cabin number
+   embarked -- (TEXT) port of embarkation
 
 EXAMPLE(S):
-    /authors?search_text=bront&start_year=1817
+    /all/?search=owen
 
-       [{'last_name':'Brontë', 'first_name':'Ann', birth_year:1820, death_year:1849},
-        {'last_name':'Brontë', 'first_name':'Emily', birth_year:1818, death_year:1848}]
+       [{"id": 1, "survived": false, "class": 3, "name": "Braund, Mr. Owen Harris", "sex": "male", "age": 22.0, "sibsp": 1, "parch": 0, "ticket": "A/5 21171", "fare": 7.25, "cabin": null, "embarked": "S"},
+       {"id": 625, "survived": false, "class": 3, "name": "Bowen, Mr. David John \"Dai\"", "sex": "male", "age": 21.0, "sibsp": 0, "parch": 0, "ticket": "54636", "fare": 16.1, "cabin": null, "embarked": "S"},
+       {"id": 835, "survived": false, "class": 3, "name": "Allum, Mr. Owen George", "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "ticket": "2223", "fare": 8.3, "cabin": null, "embarked": "S"}]
 
-       (no Charlotte, since she was born in 1816)
+REQUEST: /count/<status>/
+
+GET parameters
+    status (Not Optional) -- alive returns the count of the passengers who
+        survived, dead returns the count of the passengers who died, and
+        anything else (though 'all' is recommended) returns the count of all
+        the passengers
+
+    class (Optional) -- returns the count of the passengers
+
+RESPONSE: a JSON list of dictionaries, each of which represents one passenger,
+sorted by id number. Each dictionary in this list will have the following
+fields.
+
+    id -- (INTEGER) the passenger's id number in the database
+    survived -- (BOOLEAN) whether the passenger survived the titanic sinking
+    class -- (INTEGER) the passenger class of the passenger (1,2,or 3)
+    name -- (TEXT) the full name of the passenger including title
+    sex -- (TEXT) male or female
+    age -- (NUMERIC) age in years
+    sibsp -- (INTEGER) number of siblings/spouses aboard the titanic
+    parch -- (INTEGER) number of parents/children aboard the titanic
+    ticket -- (TEXT) ticket number
+    fare -- (NUMERIC) passenger fare
+    cabin -- (TEXT) cabin number
+    embarked -- (TEXT) port of embarkation
+
+EXAMPLE(S):
+    /all/?search=owen
+
+        [{"id": 1, "survived": false, "class": 3, "name": "Braund, Mr. Owen Harris", "sex": "male", "age": 22.0, "sibsp": 1, "parch": 0, "ticket": "A/5 21171", "fare": 7.25, "cabin": null, "embarked": "S"},
+        {"id": 625, "survived": false, "class": 3, "name": "Bowen, Mr. David John \"Dai\"", "sex": "male", "age": 21.0, "sibsp": 0, "parch": 0, "ticket": "54636", "fare": 16.1, "cabin": null, "embarked": "S"},
+        {"id": 835, "survived": false, "class": 3, "name": "Allum, Mr. Owen George", "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "ticket": "2223", "fare": 8.3, "cabin": null, "embarked": "S"}]
