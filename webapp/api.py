@@ -33,6 +33,10 @@ def get_all_data():
         search term in their name. Case insensitive!
             http://.../all/?search=[search_term]
 
+        Optional: You can use the GET parameter sort to sort the passengers
+        by name, age, id, or class.
+            http://.../all/?sort=[name | age | id | class]
+
         id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
     '''
 
@@ -45,7 +49,16 @@ def get_all_data():
         query += ' WHERE LOWER(name) LIKE %s'
         tuple_arguments.append(like_clause)
 
-    query += 'ORDER BY id;'
+    sort_by = flask.request.args.get('sort')
+    if sort_by == 'name':
+        query += ' ORDER BY name;'
+    elif sort_by == 'age':
+        query += ' ORDER BY age;'
+    elif sort_by == 'class':
+        query += ' ORDER BY class;'
+    else:
+        query += ' ORDER BY id;'
+
     passenger_list = []
     try:
         connection = get_connection()
