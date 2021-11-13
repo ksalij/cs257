@@ -26,15 +26,6 @@ function initialize() {
         womanButton.onclick = onWomanButtonClicked;
         let manButton = document.getElementById('men');
         manButton.onclick = onManButtonClicked;
-	/*let nameSortingButton = document.getElementById('name');
-	nameSortingButton.onclick = onNameSortingButtonClicked;
-	let ageSortingButton = document.getElementById('age');
-	ageSortingButton.onclick = onAgeSortingButtonClicked;
-	let passengerIDSortingButton = document.getElementById('passenger');
-	passengerIDSortingButton.onclick = onPassengerIDSortingButtonClicked;
-	let classSortingButton = document.getElementById('class');
-	classSortingButton.onclick = onClassSortingButtonClicked;
-	*/
 }
 
 // Returns the base URL of the API, onto which endpoint components can be appended.
