@@ -88,11 +88,13 @@ def get_count(status):
     else:
         query += ' WHERE 1=1' #need something after the WHERE clause because of syntax
 
+    tuple_arguments = []
     start_age = flask.request.args.get('start_age', default=0, type=int)
     end_age = flask.request.args.get('end_age', default=10000, type=int)
     if start_age != 0 or end_age != 10000:
         query += ' AND age >= %s AND age <= %s' #Does not include null ages
-    tuple_arguments = [start_age, end_age]
+        tuple_arguments.append(start_age)
+        tuple_arguments.append(end_age)
 
     pclass = flask.request.args.get('class')
     if pclass is not None:
