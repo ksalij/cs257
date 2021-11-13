@@ -1,26 +1,26 @@
-/* Horizontal navigation */
 img.search{
-	width:70px;
-	height:50px;
-	float:left;
-	margin-left: 100px;
-	padding-top:15px;
+        width:70px;
+        height:50px;
+        float:left;
+        margin-left: 100px;
+        padding-top:15px;
 }
 
 .search_bar{
-	margin-left:150px;
-	width: 70%;
-	margin-right: -30px;
-	font-size:40px;
-	border-style: solid;
-	border-color: black;
+        margin-left:150px;
+        width: 70%;
+        margin-right: -30px;
+        font-size:20px;
+        border-style: solid;
+        border-color: black;
 }
 
 .results{
-	border-style:solid;
-	border-color: black;
-	height: 500px;
-	text-align: center;
+        border-style:solid;
+        border-color: black;
+        height: 500px;
+        text-align: center;
+        padding:20px;
 }
 
 
@@ -79,9 +79,16 @@ ul.horizontal-navbar li a:hover {
 }
 
 h1{
-	text-align: center;
+        text-align: center;
 }
 
 p {
-	padding: 20px;
+        padding: 20px;
+}
+
+button{
+        width:10%;
+        height:10%;
+        border: black solid;
+        padding: 20px;
 }

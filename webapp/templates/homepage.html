@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Titanic API Homepage</title>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage.css') }}" />
-		<script type="text/javascript" src="static/titanic.js"></script>
-		<link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
-	</head>
+        <head>
+                <meta charset="UTF-8">
+                <title>Titanic API Homepage</title>
+                <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage.css') }}" />
+                <script type="text/javascript" src="static/titanic.js"></script>
+                <link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
+        </head>
 
-	<body>
-		<h1 class = "home"><a href="index.html">Titanic API</a></h1>
-		<ul class = "horizontal-navbar">
-			<li><a href="nope.html">Raw Data</a></li>
-			<li><a href="nope.html">Charts</a></li>
-			<li><a href="nope.html">Prices</a></li>
-			<li><a href="searchpage.html">Search</a></li>
-			<li><img class = "search" src="https://www.pngkey.com/png/detail/87-872166_magnifying-glass-icon-transparent.png"></li>
-		</ul>
+        <body>
+                <h1 class = "home"><a href="index.html">Titanic API</a></h1>
+                <ul class = "horizontal-navbar">
+                        <li><a href="nope.html">Raw Data</a></li>
+                        <li><a href="nope.html">Charts</a></li>
+                        <li><a href="nope.html">Prices</a></li>
+                        <li><a href="searchpage.html">Search</a></li>
+                        <li><img class = "search" src="https://www.pngkey.com/png/detail/87-872166_magnifying-glass-icon-transparent.png"></li>
+                </ul>
 
-		<h1>Home</h1>
+                <h1>Home</h1>
 
-		<ul class = "buttons mode">
-			<li><button id="deceased"><b>Deceased</b></li>
-			<li><button id="survivors"><b>Survivors</b></li>
-			<li><button id="all"><b>All</b></li>
-		</ul>
+                <ul class = "buttons mode">
+                        <li><button id="deceased"><b>Deceased</b></li>
+                        <li><button id="survivors"><b>Survivors</b></li>
+                        <li><button id="all"><b>All</b></li>
+                </ul>
 		<img class= "titanic" src= "https://i.pinimg.com/originals/6a/58/b6/6a58b610d5fb6a71475415f9e42039fb.png">
-		<table id="class_table" class ="textbox">Click on a class to get more information</table>
-		<ul class = "buttons classes">
-			<li><button id="firstClass"><b>1st Class</b></li>
-			<li><button id="secondClass"><b>2nd Class</b></li>
-			<li><button id="thirdClass"><b>3rd Class</b></li>
-		</ul>
-		<img class= "men_and_women" src="https://static.thenounproject.com/png/1386570-200.png">
-		<table class="small textbox" id="sex_box">Click on men or women to get more information</table>
-		<ul class = "buttons sex">
-			<li><button id="women"><b>Women</b></li>
-			<li><button id="men"><b>Men</b></li>
-		</ul>
-		<img class = "ages" src="https://image.shutterstock.com/image-vector/childhood-old-age-icon-vector-260nw-1884565942.jpg">
-		<table class = "textbox move_ages medium" id="age_box">Click on an age group to get more information</table>
-		<ul class = "buttons ages">
-			<li><button id="0-5"><b>0-5</b></li>
-			<li><button id="6-14"><b>6-14</b></li>
-			<li><button id="15-24"><b>15-24</b></li>
-			<li><button id="25-64"><b>25-64</b></li>
-			<li><button id="65+"><b>65+</b></li>
-		</ul>
-	</body>
+                <p class = "textbox" id = "class_table">Click on a class to get more information</p>
+                <ul class = "buttons classes">
+                        <li><button id="firstClass"><b>1st Class</b></li>
+                        <li><button id="secondClass"><b>2nd Class</b></li>
+                        <li><button id="thirdClass"><b>3rd Class</b></li>
+                </ul>
+                <img class= "men_and_women" src="https://static.thenounproject.com/png/1386570-200.png">
+                <p class="small textbox" id="sex_box">Click on men or women to get more information</p>
+                <ul class = "buttons sex">
+                        <li><button id="women"><b>Women</b></li>
+                        <li><button id="men"><b>Men</b></li>
+                </ul>
+                <img class = "ages" src="https://image.shutterstock.com/image-vector/childhood-old-age-icon-vector-260nw-1884565942.jpg">
+                <table class = "textbox move_ages medium" id="age_box">Click on an age group to get more information</table>
+                <ul class = "buttons ages">
+                        <li><button id="0-5"><b>0-5</b></li>
+                        <li><button id="6-14"><b>6-14</b></li>
+                        <li><button id="15-24"><b>15-24</b></li>
+                        <li><button id="25-64"><b>25-64</b></li>
+                        <li><button id="65+"><b>65+</b></li>
+                </ul>
+        </body>
 </html>

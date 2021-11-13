@@ -157,3 +157,4 @@ def search_passengers(search_term):
 
 @api.route('/help')
 def get_help():
+    print("hello")
