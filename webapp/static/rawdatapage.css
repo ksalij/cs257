@@ -1,28 +1,12 @@
+/* Horizontal navigation */
 img.search{
-        width:70px;
-        height:50px;
-        float:left;
-        margin-left: 100px;
-        padding-top:15px;
+	width:50px;
+	height:30px;
+	float:left;
+	padding-top:10px;
 }
 
-.search_bar{
-        margin-left:50px;
-        width: 70%;
-        margin-right: -30px;
-        font-size:20px;
-        border-style: solid;
-        border-color: black;
-}
 
-.results{
-        border-style:solid;
-        border-color: black;
-        height: 500px;
-        text-align: center;
-        padding-top:20px;
-	width: 200px;
-}
 
 
 h1.home{
@@ -80,17 +64,38 @@ ul.horizontal-navbar li a:hover {
 }
 
 h1{
-        text-align: center;
+	text-align: center;
 }
 
-p {
-        padding: 20px;
+.results {
+	padding: 20px;
+	border: 3px solid black;
+	margin: 10px;
+	flex-grow: 1;
 }
 
-button{
-        width:10%;
-        height:10%;
-        border: black solid;
-        padding: 20px;
-	float:right;
+#sort-header {
+	background-color: midnightblue;
+	color: white;
+}
+
+.vertical-sort {
+	list-style-type: none;
+	text-align: center;
+	background-color: lightblue;
+	padding: 15px;
+}
+
+.vertical-sort li {
+	padding: 5px;
+}
+
+.vertical-sort li:hover {
+	background-color: blue;
+	color: white;
+	padding: 5px;
+}
+
+#layout {
+	display: flex;
 }

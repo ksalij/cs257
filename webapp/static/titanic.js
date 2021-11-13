@@ -26,6 +26,15 @@ function initialize() {
         womanButton.onclick = onWomanButtonClicked;
         let manButton = document.getElementById('men');
         manButton.onclick = onManButtonClicked;
+	/*let nameSortingButton = document.getElementById('name');
+	nameSortingButton.onclick = onNameSortingButtonClicked;
+	let ageSortingButton = document.getElementById('age');
+	ageSortingButton.onclick = onAgeSortingButtonClicked;
+	let passengerIDSortingButton = document.getElementById('passenger');
+	passengerIDSortingButton.onclick = onPassengerIDSortingButtonClicked;
+	let classSortingButton = document.getElementById('class');
+	classSortingButton.onclick = onClassSortingButtonClicked;
+	*/
 }
 
 // Returns the base URL of the API, onto which endpoint components can be appended.
@@ -55,7 +64,7 @@ function onAllButtonClicked() {
 function onFirstClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
-        //url += '?class=1';
+        url += '?class=1';
         fetch(url, {method: 'get'})
         .then((response) => response.json())
         .then(function(firstClassList) {
@@ -74,7 +83,7 @@ function onFirstClassButtonClicked() {
 function onSecondClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
-        //url += '?class=2';
+        url += '?class=2';
         fetch(url, {method: 'get'})
         .then((response) => response.json())
         .then(function(secondClassList) {
@@ -93,7 +102,7 @@ function onSecondClassButtonClicked() {
 function onThirdClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
-        //url += '?class=3';
+        url += '?class=3';
         fetch(url, {method: 'get'})
         .then((response) => response.json())
         .then(function(thirdClassList) {
@@ -111,13 +120,13 @@ function onThirdClassButtonClicked() {
 
 function addStatusToURL(url) {
         if (alive==true){
-                url += '/alive';
+                url += '/alive/';
         }
         else if (all == true){
-                url += '/all';
+                url += '/all/';
         }
         else if (deceased == true){
-                url += '/dead';
+                url += '/dead/';
         }
         return url;
 }
@@ -159,20 +168,3 @@ function onManButtonClicked() {
                 console.log(error);
         });
 }
-
-function onEnterButtonClicked() {
-        var url = getAPIBaseURL() + '/search/';
-        var searchWordElement = document.getElementById('search');
-        url += '<' + searchWordElement + '>';
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(resultsList) {
-                var tableBody = '';
-
-                tableBody +=
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
-}
-
