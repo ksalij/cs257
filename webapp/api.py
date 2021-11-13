@@ -22,21 +22,35 @@ def get_connection():
                             user=config.user,
                             password=config.password)
 
-@api.route('/all')
+@api.route('/all/')
 def get_all_data():
     ''' Returns all of the data associated with each of the passengers
         in our database. Default, sorted by id number.
         Returns an empty list if there's any database failure.
 
+        Optional: You can use the GET parameter search to search for specific
+        passengers by name. Will return all the passengers with the specified
+        search term in their name. Case insensitive!
+            http://.../all/?search=[search_term]
+
         id, survived, class, name, sex, age, sibsp, parch, ticket, fare, cabin, embarked
     '''
-    query = '''SELECT * FROM passenger_info ORDER BY id'''
+
+    query = '''SELECT * FROM passenger_info
+            ORDER BY id'''
+
+    tuple_arguments = []
+    search_term = flask.request.args.get('search')
+    if search_term is not None:
+        like_clause = '%' + search_term.lower() + '%'
+        query += ' WHERE LOWER(name) LIKE %s;'
+        tuple_arguments.append(like_clause)
 
     passenger_list = []
     try:
         connection = get_connection()
         cursor = connection.cursor()
-        cursor.execute(query, tuple())
+        cursor.execute(query, tuple(tuple_arguments))
         for row in cursor:
             if row[5] is not None: #because some of the passengers don't have an age, and it messes with casting it as a float
                 age = float(row[5])
@@ -123,40 +137,6 @@ def get_count(status):
 
     return json.dumps(passenger_count)
 
-@api.route('/search/<search_term>')
-def search_passengers(search_term):
-    ''' Returns all the passengers with names that include the search term
-        Case insensitive!
-    '''
-
-    like_clause = '%' + search_term.lower() + '%'
-
-    query = '''SELECT id, survived, class, name, sex
-            FROM passenger_info
-            WHERE LOWER(name) LIKE %s;
-            '''
-    #print(query)
-    # print(like_clause)
-
-    passenger_list = []
-    try:
-        connection = get_connection()
-        cursor = connection.cursor()
-        cursor.execute(query, (like_clause,))
-        for row in cursor:
-            passenger = {'id':row[0],
-                      'survived':row[1],
-                      'class':row[2],
-                      'name':row[3],
-                      'sex':row[4]}
-            passenger_list.append(passenger)
-        cursor.close()
-        connection.close()
-    except Exception as e:
-        print(e, file=sys.stderr)
-
-    return json.dumps(passenger_list)
-
 @api.route('/help')
 def get_help():
-    print("hello")
+    return flask.render_template('help.txt')

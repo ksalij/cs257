@@ -1,0 +1,30 @@
+REQUEST: /all/
+
+GET parameters
+    search_term (Optional, default: '') -- return only authors whose
+        first or last names contain search_text, case-insensitively
+
+RESPONSE: a JSON list of dictionaries, each of which represents one passenger,
+sorted by id number. Each dictionary in this list will have the following
+fields.
+
+   id -- (INTEGER) the passenger's id number in the database
+   survived -- (BOOLEAN) whether the passenger survived the titanic sinking
+   class -- (INTEGER) the passenger class of the passenger (1,2,or 3)
+   name -- (TEXT) the full name of the passenger including title
+   sex -- (TEXT) male or female
+   age -- (NUMERIC) age of the
+   sibsp -- (INTEGER)
+   parch -- (INTEGER)
+   ticket -- (TEXT)
+   fare -- (NUMERIC)
+   cabin -- (TEXT)
+   embarked -- (TEXT)
+
+EXAMPLE(S):
+    /authors?search_text=bront&start_year=1817
+
+       [{'last_name':'Brontë', 'first_name':'Ann', birth_year:1820, death_year:1849},
+        {'last_name':'Brontë', 'first_name':'Emily', birth_year:1818, death_year:1848}]
+
+       (no Charlotte, since she was born in 1816)
