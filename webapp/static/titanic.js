@@ -130,7 +130,7 @@ function onWomanButtonClicked() {
         .then((response) => response.json())
         .then(function(womanList) {
                 var contents = '';
-                tableBody += '<p>' + womanList + '</p>';
+                contents += '<p>' + womanList + '</p>';
                 var sexBoxElement = document.getElementById('sex_box');
                 if (sexBoxElement) {
                         sexBoxElement.innerHTML = contents;
@@ -149,11 +149,27 @@ function onManButtonClicked() {
         .then((response) => response.json())
         .then(function(manList) {
                 var contents = '';
-                tableBody += '<p>' + manList + '</p>';
+                contents += '<p>' + manList + '</p>';
                 var sexBoxElement = document.getElementById('sex_box');
                 if (sexBoxElement) {
                         sexBoxElement.innerHTML = contents;
                 }
+        })
+        .catch(function(error) {
+                console.log(error);
+        });
+}
+
+function onEnterButtonClicked() {
+        var url = getAPIBaseURL() + '/search/';
+        var searchWordElement = document.getElementById('search');
+        url += '<' + searchWordElement + '>';
+        fetch(url, {method: 'get'})
+        .then((response) => response.json())
+        .then(function(resultsList) {
+                var tableBody = '';
+
+                tableBody +=
         })
         .catch(function(error) {
                 console.log(error);
