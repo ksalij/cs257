@@ -3,16 +3,6 @@
  * Kiri Salij and Lysander Miller, 9 November 2021
  */
 
-deceased = false;
-alive = false;
-all = false;
-window.onload = initialize;
-
-function initialize() {
-/*
- * titanic.js
- * Kiri Salij and Lysander Miller, 9 November 2021
- */
 
 deceased = false;
 alive = false;
