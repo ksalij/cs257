@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
         <head>
-                <meta charset="UTF-8">
-                <title>Titanic API Homepage</title>
-                <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage_copy.css') }}" />
-                <script type="text/javascript" src="static/titanic.js"></script>
-                <link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
+            <meta charset="UTF-8">
+            <title>Titanic API Homepage</title>
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage_copy.css') }}" />
+            <script type="text/javascript" src="static/titanic.js"></script>
+            <link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
         </head>
 
         <body>
-                <h1 class = "home"><a href="index.html">Titanic API</a></h1>
-                <ul class = "horizontal-navbar">
-                        <li><a href="nope.html">Raw Data</a></li>
-                        <li><a href="nope.html">Charts</a></li>
-                        <li><a href="nope.html">Prices</a></li>
-                        <li><a href="searchpage.html">Search</a></li>
-                        <li><img class = "search" src="https://www.pngkey.com/png/detail/87-872166_magnifying-glass-icon-transparent.png"></li>
-                </ul>
+        		<h1 class = "home"><a href="index.html">Titanic API</a></h1>
+          	<ul class = "horizontal-navbar">
+            		<li><a href="nope.html">Raw Data</a></li>
+            		<li><a href="nope.html">Charts</a></li>
+            		<li><a href="nope.html">Prices</a></li>
+            		<li><a href="searchpage.html">Search</a></li>
+            		<li><img class = "search" src="https://www.pngkey.com/png/detail/87-872166_magnifying-glass-icon-transparent.png"></li>
+          	</ul>
 
-                <h2>Home</h2>
+          	<h2>Home</h2>
 
-                <ul class = "buttons mode">
-                        <li><button id="deceased"><b>Deceased</b></li>
-                        <li><button id="survivors"><b>Survivors</b></li>
-                        <li><button id="all"><b>All</b></li>
-                </ul>
-								<img class= "titanic" src= "https://i.pinimg.com/originals/6a/58/b6/6a58b610d5fb6a71475415f9e42039fb.png">
-                <p class = "textbox" id = "class_table">Click on a class to get more information</p>
-                <ul class = "buttons classes">
-                        <li><button id="firstClass"><b>1st Class</b></li>
-                        <li><button id="secondClass"><b>2nd Class</b></li>
-                        <li><button id="thirdClass"><b>3rd Class</b></li>
-                </ul>
-                <img class= "men_and_women" src="https://static.thenounproject.com/png/1386570-200.png">
-                <p class="small textbox" id="sex_box">Click on men or women to get more information</p>
-                <ul class = "buttons sex">
-                        <li><button id="women"><b>Women</b></li>
-                        <li><button id="men"><b>Men</b></li>
-                </ul>
-                <img class = "ages" src="https://image.shutterstock.com/image-vector/childhood-old-age-icon-vector-260nw-1884565942.jpg">
-                <table class = "textbox move_ages medium" id="age_box">Click on an age group to get more information</table>
-                <ul class = "buttons ages">
-                        <li><button id="0-5"><b>0-5</b></li>
-                        <li><button id="6-14"><b>6-14</b></li>
-                        <li><button id="15-24"><b>15-24</b></li>
-                        <li><button id="25-64"><b>25-64</b></li>
-                        <li><button id="65+"><b>65+</b></li>
-                </ul>
+
+          	<ul class = "buttons mode">
+          			<li><button class = "button" id="deceased"><b>Deceased</b></li>
+            		<li><button class = "button" id="survivors"><b>Survivors</b></li>
+            		<li><button class = "button" id="all"><b>All</b></li>
+          	</ul>
+
+						<div id="layout">
+							<div class = "container">
+								<!-- alternate photo of titanic https://i.pinimg.com/originals/6a/58/b6/6a58b610d5fb6a71475415f9e42039fb.png -->
+								<img class= "titanic" alt = "Black and white, the titanic" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/RMS_Titanic_3.jpg">
+          			<ul class = "buttons classes">
+            			<li><button class = "button" id="firstClass"><b>1st Class</b></li>
+                	<li><button class = "button" id="secondClass"><b>2nd Class</b></li>
+                	<li><button class = "button" id="thirdClass"><b>3rd Class</b></li>
+            		</ul>
+								<p class = "textbox" id = "class_table">Click on a class to get more information</p>
+							</div>
+
+							<div class = "container" >
+								<!-- alternate man and woman pic, https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4BUgjJdxDgZIbAJ0n-e_V0K3JvzHKd9_PeA&usqp=CAU , https://static.thenounproject.com/png/1386570-200.png-->
+            		<img class= "men_and_women" alt = "Stick figure man and woman" src = "{{ url_for('static', filename='man_woman.svg')}}">
+            		<ul class = "buttons sex">
+            			<li><button class = "button" id="women"><b>Women</b></li>
+                	<li><button class = "button" id="men"><b>Men</b></li>
+            		</ul>
+								<p class="small textbox" id="sex_box">Click on men or women to get more information</p>
+							</div>
+
+							<div class = "container">
+            		<img class = "ages" alt = "Stick figure family, small child up through elderly" src="https://image.shutterstock.com/image-vector/childhood-old-age-icon-vector-260nw-1884565942.jpg">
+            		<ul class = "buttons ages">
+            			<li><button class = "button" id="0-5"><b>0-5</b></li>
+                	<li><button class = "button" id="6-14"><b>6-14</b></li>
+                	<li><button class = "button" id="15-24"><b>15-24</b></li>
+                	<li><button class = "button" id="25-64"><b>25-64</b></li>
+                	<li><button class = "button" id="65+"><b>65+</b></li>
+            		</ul>
+								<table class = "textbox move_ages medium" id="age_box">Click on an age group to get more information</table>
+							</div>
+						</div>
         </body>
 </html>

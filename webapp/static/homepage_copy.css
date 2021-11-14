@@ -1,26 +1,19 @@
 /*Code by Kiri Salij and Lysander Miller*/
 
+/*Home button link style */
 .home a:link {
         text-decoration: none;
         color: blue;
 }
-
 .home a:visited {
         text-decoration: none;
         color: blue;
 }
-
 .home a:hover {
-        text-decoration: underline;
+  color: white;
 }
-
 .home a:active {
-        text-decoration: underline;
-}
-
-h1.home:hover {
-        background-color: #555;
-        color: white;
+  color: white;
 }
 
 img.search{
@@ -66,4 +59,52 @@ ul.horizontal-navbar li a {
 ul.horizontal-navbar li a:hover {
         background-color: #555;
         color: white;
+}
+
+h2 {
+        text-align: center;
+}
+
+#layout {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.mode {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.titanic, .men_and_women, img.ages {
+  width: 50%;
+  height: 50%;
+}
+
+.button {
+  background-color: inherit;
+  border: none;
+  color: #555;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: midnightblue;
+  color: white;
+}
+
+.buttons {
+  list-style-type: none;
+  background-color: lightblue;
+  text-align: center;
+  padding: 0;
 }
