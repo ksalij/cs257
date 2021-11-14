@@ -4,9 +4,12 @@ GET parameters
     search (Optional) -- return only passengers whose names include the search
         text provided
 
+    sort (Optional) -- sorts the returned passengers by name, class, id, or age
+        based on the sort term provided
+
 RESPONSE: a JSON list of dictionaries, each of which represents one passenger,
-sorted by id number. Each dictionary in this list will have the following
-fields.
+default sorted by id number. Each dictionary in this list will have the
+following fields.
 
    id -- (INTEGER) the passenger's id number in the database
    survived -- (BOOLEAN) whether the passenger survived the titanic sinking
@@ -22,11 +25,11 @@ fields.
    embarked -- (TEXT) port of embarkation
 
 EXAMPLE(S):
-    /all/?search=owen
+    /all/?search=owen&sort=name
 
-       [{"id": 1, "survived": false, "class": 3, "name": "Braund, Mr. Owen Harris", "sex": "male", "age": 22.0, "sibsp": 1, "parch": 0, "ticket": "A/5 21171", "fare": 7.25, "cabin": null, "embarked": "S"},
-       {"id": 625, "survived": false, "class": 3, "name": "Bowen, Mr. David John \"Dai\"", "sex": "male", "age": 21.0, "sibsp": 0, "parch": 0, "ticket": "54636", "fare": 16.1, "cabin": null, "embarked": "S"},
-       {"id": 835, "survived": false, "class": 3, "name": "Allum, Mr. Owen George", "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "ticket": "2223", "fare": 8.3, "cabin": null, "embarked": "S"}]
+      [{"id": 835, "survived": false, "class": 3, "name": "Allum, Mr. Owen George", "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "ticket": "2223", "fare": 8.3, "cabin": null, "embarked": "S"},
+      {"id": 625, "survived": false, "class": 3, "name": "Bowen, Mr. David John \"Dai\"", "sex": "male", "age": 21.0, "sibsp": 0, "parch": 0, "ticket": "54636", "fare": 16.1, "cabin": null, "embarked": "S"},
+      {"id": 1, "survived": false, "class": 3, "name": "Braund, Mr. Owen Harris", "sex": "male", "age": 22.0, "sibsp": 1, "parch": 0, "ticket": "A/5 21171", "fare": 7.25, "cabin": null, "embarked": "S"}]
 
 REQUEST: /count/<status>/
 
