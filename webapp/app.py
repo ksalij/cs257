@@ -14,9 +14,17 @@ app = flask.Flask(__name__, static_folder='static', template_folder='templates')
 app.register_blueprint(api.api, url_prefix='/api')
 
 @app.route('/')
-@app.route('/index.html')
+@app.route('/index')
 def home():
     return flask.render_template('homepage.html')
+
+@app.route('/searchpage')
+def search():
+    return flask.render_template('searchpage.html')
+
+@app.route('/rawdatapage')
+def raw_data():
+    return flask.render_template('rawdatapage.html')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('A titanic application, including API & DB')

@@ -26,6 +26,16 @@ function initialize() {
         womanButton.onclick = onWomanButtonClicked;
         let manButton = document.getElementById('men');
         manButton.onclick = onManButtonClicked;
+	let babyButton = document.getElementById('0-5');
+	babyButton.onclick = onBabyButtonClicked;
+	let childButton = document.getElementById('6-14');
+	childButton.onclick = onChildButtonClicked;
+	let youthButton = document.getElementById('15-24');
+	youthButton.onclick = onYouthButtonClicked;
+	let adultButton = document.getElementById('25-64');
+	adultButton.onclick = onAdultButtonClicked;
+	let seniorButton = document.getElementById('65+');
+	seniorButton.onclick = onSeniorButtonClicked;
 }
 
 // Returns the base URL of the API, onto which endpoint components can be appended.
@@ -145,6 +155,8 @@ function onManButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?sex=male';
+	formatOutput(url, 'sex_box');
+	/*
         fetch(url, {method: 'get'})
         .then((response) => response.json())
         .then(function(manList) {
@@ -158,4 +170,29 @@ function onManButtonClicked() {
         .catch(function(error) {
                 console.log(error);
         });
+	*/
+}
+
+function onBabyButtonClicked(){
+	var url = getAPIBaseURL() + '/count';
+	url = addStatusToURL(url);
+	url += '?start_age=0?end_age=5';
+	
+}
+
+function formatOutput(url, resultsBox) {
+	fetch(url, {method: 'get'})
+	.then((response) => response.json())
+	.then(function(list) {
+		var contents = '';
+		contents += '<p>' + list + '</p>';
+		var resultsElement = document.getElementById(resultsBox);
+		if (resultsElement) {
+			resultsElement.innerHTML = contents;
+		}
+	})
+	.catch(function(error) {
+		console.log(error);
+	});
+
 }
