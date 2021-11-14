@@ -26,6 +26,14 @@ def search():
 def raw_data():
     return flask.render_template('rawdatapage.html')
 
+@app.route('/pricespage')
+def prices():
+    return flask.render_template('pricespage.html')
+
+@app.route('/chartspage')
+def charts():
+    return flask.render_template('chartspage.html')
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('A titanic application, including API & DB')
     parser.add_argument('host', help='the host to run on')
