@@ -66,57 +66,21 @@ function onFirstClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?class=1';
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(firstClassList) {
-                var tableBody = '';
-                tableBody += '<p>' + firstClassList + '</p>';
-                var classTableElement = document.getElementById('class_table');
-                if (classTableElement) {
-                classTableElement.innerHTML = tableBody;
-                }
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
+	formatOutput(url, 'class_table');
 }
 
 function onSecondClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
-        url += '?class=2';
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(secondClassList) {
-                var tableBody = '';
-                tableBody += '<p>' + secondClassList + '</p>';
-                var classTableElement = document.getElementById('class_table');
-                if (classTableElement) {
-                        classTableElement.innerHTML = tableBody;
-                }
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
+	url += '?class=2';
+	formatOutput(url, 'class_table');
 }
 
 function onThirdClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?class=3';
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(thirdClassList) {
-                var tableBody = '';
-                tableBody += '<p>' + thirdClassList + '</p>';
-                var classTableElement = document.getElementById('class_table');
-                if (classTableElement) {
-                        classTableElement.innerHTML = tableBody;
-                }
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
+	formatOutput(url, 'class_table');
 }
 
 function addStatusToURL(url) {
@@ -136,19 +100,7 @@ function onWomanButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?sex=female';
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(womanList) {
-                var contents = '';
-                contents += '<p>' + womanList + '</p>';
-                var sexBoxElement = document.getElementById('sex_box');
-                if (sexBoxElement) {
-                        sexBoxElement.innerHTML = contents;
-                }
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
+	formatOutput(url, 'sex_box');
 }
 	
 function onManButtonClicked() {
@@ -156,28 +108,41 @@ function onManButtonClicked() {
         url = addStatusToURL(url);
         url += '?sex=male';
 	formatOutput(url, 'sex_box');
-	/*
-        fetch(url, {method: 'get'})
-        .then((response) => response.json())
-        .then(function(manList) {
-                var contents = '';
-                contents += '<p>' + manList + '</p>';
-                var sexBoxElement = document.getElementById('sex_box');
-                if (sexBoxElement) {
-                        sexBoxElement.innerHTML = contents;
-                }
-        })
-        .catch(function(error) {
-                console.log(error);
-        });
-	*/
 }
 
 function onBabyButtonClicked(){
 	var url = getAPIBaseURL() + '/count';
 	url = addStatusToURL(url);
-	url += '?start_age=0?end_age=5';
-	
+	url += '?start_age=0/?end_age=5';
+	formatOutput(url, 'age_box');
+}
+
+function onChildButtonClicked(){
+	var url = getAPIBaseURL() + '/count';
+	url = addStatusToURL(url);
+	url += '?start_age=6/?end_age=14';
+	formatOutput(url, 'age_box');
+}
+
+function onYouthButtonClicked() {
+	var url = getAPIBaseURL() + '/count';
+	url = addStatusToURL(url);
+	url += '?start_age=15/?end_age=24';
+	formatOutput(url, 'age_box');
+}
+
+function onAdultButtonClicked() {
+	var url = getAPIBaseURL() + '/count';
+	url = addStatusToURL(url);
+	url += '?start_age=25/?end_age=64';
+	formatOutput(url, 'age_box');
+}
+
+function onSeniorButtonClicked() {
+	var url = getAPIBaseURL() + '/count';
+	url = addStatusToURL(url);
+        url += '?start_age=65';
+	formatOutput(url, 'age_box');
 }
 
 function formatOutput(url, resultsBox) {
