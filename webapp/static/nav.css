@@ -1,0 +1,68 @@
+/* Code by Kiri Salij and Lysander Miller */
+/* CSS style sheet for the navigation bar and other styling consistant across webpages */
+
+/*Home button link style */
+.home a:link {
+        text-decoration: none;
+        color: blue;
+}
+.home a:visited {
+        text-decoration: none;
+        color: blue;
+}
+.home a:hover {
+  color: white;
+}
+.home a:active {
+  color: white;
+}
+
+img.search{
+        width:50px;
+        height:30px;
+        float:left;
+        padding-top: 10px;
+}
+
+h1.home{
+        float:left;
+        font-size: 20px;
+        border:black;
+        border-style:solid;
+        padding:5px 5px;
+}
+
+h1.home:hover {
+        background-color: #555;
+        color: white;
+}
+
+ul.horizontal-navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f1f1f1;
+}
+
+ul.horizontal-navbar li {
+        float: right;
+}
+
+ul.horizontal-navbar li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+}
+
+ul.horizontal-navbar li a:hover {
+        background-color: #555;
+        color: white;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}

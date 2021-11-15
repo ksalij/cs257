@@ -1,9 +1,11 @@
+<!-- Kiri Salij and Lysander Miller, Software Design Fall 2021 -->
 <!DOCTYPE html>
 <html lang="en">
         <head>
             <meta charset="UTF-8">
             <title>Titanic API Homepage</title>
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage_copy.css') }}" />
+						<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}" />
             <script type="text/javascript" src="static/titanic.js"></script>
             <link rel="icon" href="https://lh3.googleusercontent.com/proxy/_Fnab7jU2sIyqEtV4sk1ofGSz3sDNdQuL0l7j6-ZkdlXGpIVD4tGpF6TtH8ZzIsyo4WzEn1QVEpPQ1dzdgUWuRiJ_Dt0ArU" type="image/png" >
         </head>
@@ -20,18 +22,17 @@
 
           	<h2>Home</h2>
 
-
           	<ul class = "buttons mode">
-          			<li><button class = "button" id="deceased"><b>Deceased</b></li>
-            		<li><button class = "button" id="survivors"><b>Survivors</b></li>
-            		<li><button class = "button" id="all"><b>All</b></li>
+							<li><button class = "button" id="all"><b>All</b></li>
+          		<li><button class = "button" id="deceased"><b>Deceased</b></li>
+            	<li><button class = "button" id="survivors"><b>Survivors</b></li>
           	</ul>
 
 						<div id="layout">
 							<div class = "container">
 								<!-- alternate photo of titanic https://i.pinimg.com/originals/6a/58/b6/6a58b610d5fb6a71475415f9e42039fb.png -->
 								<img class= "titanic" alt = "Black and white, the titanic" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/RMS_Titanic_3.jpg">
-          			<ul class = "buttons classes">
+          			<ul class = "buttons" id = "classes">
             			<li><button class = "button" id="firstClass"><b>1st Class</b></li>
                 	<li><button class = "button" id="secondClass"><b>2nd Class</b></li>
                 	<li><button class = "button" id="thirdClass"><b>3rd Class</b></li>
@@ -41,8 +42,8 @@
 
 							<div class = "container" >
 								<!-- alternate man and woman pic, https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4BUgjJdxDgZIbAJ0n-e_V0K3JvzHKd9_PeA&usqp=CAU , https://static.thenounproject.com/png/1386570-200.png-->
-            		<img class= "men_and_women" alt = "Stick figure man and woman" src = "{{ url_for('static', filename='man_woman.svg')}}">
-            		<ul class = "buttons sex">
+            		<img class= "men_and_women" alt = "Stick figure man and woman" src = "{{ url_for('static', filename='man_woman.jpg')}}">
+            		<ul class = "buttons" id ="sex">
             			<li><button class = "button" id="women"><b>Women</b></li>
                 	<li><button class = "button" id="men"><b>Men</b></li>
             		</ul>
@@ -51,7 +52,7 @@
 
 							<div class = "container">
             		<img class = "ages" alt = "Stick figure family, small child up through elderly" src="https://image.shutterstock.com/image-vector/childhood-old-age-icon-vector-260nw-1884565942.jpg">
-            		<ul class = "buttons ages">
+            		<ul class = "buttons" id = "ages">
             			<li><button class = "button" id="0-5"><b>0-5</b></li>
                 	<li><button class = "button" id="6-14"><b>6-14</b></li>
                 	<li><button class = "button" id="15-24"><b>15-24</b></li>
@@ -60,6 +61,7 @@
             		</ul>
 								<p class = "textbox move_ages medium" id="age_box">Click on an age group to get more information</p>
 							</div>
+
 						</div>
         </body>
 </html>
