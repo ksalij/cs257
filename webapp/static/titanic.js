@@ -48,45 +48,44 @@ function onDeceasedButtonClicked() {
         alive = false;
         all = false;
         deceased = true;
-	document.getElementById('deceased').style.background='#404040';
-	document.getElementById('deceased').style.color = '#FFFFFF';
+        //document.getElementById('deceased').style.background='#404040';
+        //document.getElementById('deceased').style.color = '#FFFFFF';
 }
 
 function onAliveButtonClicked() {
         alive = true;
         all = false;
         deceased = false;
-	resetToDefaultStyle(["'all'", "'deceased'"]);
-	clickedOnStyling('alive');
 }
 
 function onAllButtonClicked() {
         alive = false;
         deceased = false;
         all = true;
-	resetToDefaultStyle(["'alive'", "'deceased'"]);
-	clickedOnStyling('all');
 }
 
 function onFirstClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?class=1';
-	formatOutput(url, 'class_table');
+        var outputString = '<p>' + getCurrentStatus() + 'in first class: ';
+        formatOutput(url, 'class_table', outputString);
 }
 
 function onSecondClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
-	url += '?class=2';
-	formatOutput(url, 'class_table');
+        url += '?class=2';
+        var outputString = '<p>' + getCurrentStatus() + 'in second class: ';
+        formatOutput(url, 'class_table', outputString);
 }
 
 function onThirdClassButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?class=3';
-	formatOutput(url, 'class_table');
+        var outputString = '<p>' + getCurrentStatus() + 'in third class: ';
+        formatOutput(url, 'class_table', outputString);
 }
 
 function addStatusToURL(url) {
@@ -106,77 +105,83 @@ function onWomanButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?sex=female';
-	formatOutput(url, 'sex_box');
+        var outputString = '<p>' + getCurrentStatus() + 'who were women: ';
+        formatOutput(url, 'sex_box', outputString);
 }
-	
+
 function onManButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
         url += '?sex=male';
-	formatOutput(url, 'sex_box');
+        var outputString = '<p>' + getCurrentStatus() + 'who were men: ';
+        formatOutput(url, 'sex_box', outputString);
 }
 
 function onBabyButtonClicked(){
-	var url = getAPIBaseURL() + '/count';
-	url = addStatusToURL(url);
-	url += '?start_age=0/?end_age=5';
-	formatOutput(url, 'age_box');
+        var url = getAPIBaseURL() + '/count';
+        url = addStatusToURL(url);
+        url += '?start_age=0&end_age=5';
+        var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 0-5: ';
+        formatOutput(url, 'age_box', outputString);
 }
 
 function onChildButtonClicked(){
-	var url = getAPIBaseURL() + '/count';
-	url = addStatusToURL(url);
-	url += '?start_age=6/?end_age=14';
-	formatOutput(url, 'age_box');
+        var url = getAPIBaseURL() + '/count';
+        url = addStatusToURL(url);
+        url += '?start_age=6&end_age=14';
+        var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 6-14: ';
+        formatOutput(url, 'age_box', outputString);
 }
 
 function onYouthButtonClicked() {
-	var url = getAPIBaseURL() + '/count';
-	url = addStatusToURL(url);
-	url += '?start_age=15/?end_age=24';
-	formatOutput(url, 'age_box');
+        var url = getAPIBaseURL() + '/count';
+        url = addStatusToURL(url);
+        url += '?start_age=15&end_age=24';
+        var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 15-24: ';
+        formatOutput(url, 'age_box', outputString);
 }
 
 function onAdultButtonClicked() {
-	var url = getAPIBaseURL() + '/count';
-	url = addStatusToURL(url);
-	url += '?start_age=25/?end_age=64';
-	formatOutput(url, 'age_box');
+        var url = getAPIBaseURL() + '/count';
+        url = addStatusToURL(url);
+        url += '?start_age=25&end_age=64';
+        var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 25-64: ';
+        formatOutput(url, 'age_box', outputString);
 }
 
 function onSeniorButtonClicked() {
-	var url = getAPIBaseURL() + '/count';
-	url = addStatusToURL(url);
+        var url = getAPIBaseURL() + '/count';
+        url = addStatusToURL(url);
         url += '?start_age=65';
-	formatOutput(url, 'age_box');
+        var outputString = '<p>' + getCurrentStatus() + 'over the age of 65: ';
+        formatOutput(url, 'age_box', outputString);
 }
 
-function formatOutput(url, resultsBox) {
-	fetch(url, {method: 'get'})
-	.then((response) => response.json())
-	.then(function(list) {
-		var contents = '';
-		contents += '<p>' + list + '</p>';
-		var resultsElement = document.getElementById(resultsBox);
-		if (resultsElement) {
-			resultsElement.innerHTML = contents;
-		}
-	})
-	.catch(function(error) {
-		console.log(error);
-	});
-
+function getCurrentStatus(){
+        if (deceased == true) {
+                return "Number of passengers who did not survive ";
+        }
+        else if (alive == true) {
+                return "Number of passengers who survived ";
+        }
+        else if (all == true) {
+                return "Count of all of the passengers ";
+        }
 }
 
-function resetToDefaultStyle(buttonsToReset) {
-	for (var i = 0; i < buttonsToReset.length; i++) {
-		console.log(buttonsToReset[i]);
-		document.getElementById(buttonsToReset[i]).style.background = '#add8e6';
-	        document.getElementById(buttonsToReset[i]).style.color = '#FFFFFF';
-	}
-}
+function formatOutput(url, resultsBox, outputStringPortion) {
+        fetch(url, {method: 'get'})
+        .then((response) => response.json())
+        .then(function(list) {
+                var contents = '';
+                contents += outputStringPortion + list + '</p>';
+                var resultsElement = document.getElementById(resultsBox);
+                if (resultsElement) {
+                        resultsElement.innerHTML = contents;
+                }
+        })
+        .catch(function(error) {
+                console.log(error);
+        });
 
-function clickedOnStyling(buttonToStyle) {
-	document.getElementById(buttonToStyle).style.background='#404040';
-	document.getElementById(buttonToStyle).style.color = '#FFFFFF';
 }
