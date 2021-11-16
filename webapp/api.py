@@ -152,4 +152,5 @@ def get_count(status):
 
 @api.route('/help')
 def get_help():
-    return flask.render_template('help.txt')
+    help_text = open('templates/help.txt').read()
+    return flask.Response(help_text, mimetype='text/plain')
