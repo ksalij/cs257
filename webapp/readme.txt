@@ -6,6 +6,7 @@ FEATURES CURRENTLY WORKING:
 - Clicking on various homepage buttons returns the count of those people
 - The search page searches passengers by name
 - Raw data can be sorted by name, age, class, and passenger id
+- /help in the api works
 
 FEATURES NOT YET WORKING:
 - The buttons don't yet stay highlighted when they are selected

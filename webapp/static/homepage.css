@@ -1,181 +1,59 @@
 /*Code by Kiri Salij and Lysander Miller*/
 
-.home a:link {
-        text-decoration: none;
-        color: blue;
+#layout {
+  display: flex;
+  flex-flow: column wrap;
 }
 
-.home a:visited {
-        text-decoration: none;
-        color: blue;
+.mode {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-.home a:hover {
-        text-decoration: underline;
+.mode button {
+  font-size: 16px;
 }
 
-.home a:active {
-        text-decoration: underline;
+.container {
+  display: flex;
+  /* align-items: center; */
 }
 
-h1.home:hover {
-        background-color: #555;
-        color: white;
+.titanic, .men_and_women, img.ages {
+  width: 50%;
+  height: 50%;
+
 }
 
-img.search{
-        width:50px;
-        height:30px;
-        float:left;
-        padding-top: 10px;
+.button {
+  background-color: inherit;
+  border: none;
+  color: #585858;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
-h1.home{
-        float:left;
-        font-size: 20px;
-        border:black;
-        border-style:solid;
-        padding:5px 5px;
+.button:hover {
+  background-color: midnightblue;
+  color: white;
 }
 
-h1.home:hover {
-        background-color: #555;
-        color: white;
+.buttons {
+  list-style-type: none;
+  background-color: lightblue;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-ul.horizontal-navbar {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #f1f1f1;
+#classes, #sex, #ages {
+  width: 11%;
 }
 
-ul.horizontal-navbar li {
-        float: right;
-}
-
-ul.horizontal-navbar li a {
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-}
-
-ul.horizontal-navbar li a:hover {
-        background-color: #555;
-        color: white;
-}
-
-ul.buttons{
-        list-style-type:none;
-        margin:0;
-        padding:0;
-        overflow: hidden;
-        background-color: white;
-}
-
-ul.mode li{
-        float: right;
-        width: 370px;
-}
-
-ul.classes li{
-        float: right;
-        width: 100px;
-        padding-top: 100px;
-}
-
-ul.sex li{
-        float:right;
-        width: 100px;
-        padding-top: 100px;
-}
-
-ul.ages li{
-        float:right;
-        width:100px;
-        padding-top: 20px;
-        margin-top: 30px;
-}
-
-ul.buttons li b{
-        display:block;
-        background-color:white;
-        border: black;
-        border-style: solid;
-        color: black;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-}
-
-ul.buttons li b:hover {
-        background-color: #555;
-        color: white;
-}
-
-
-h1 {
-        text-align: center;
-}
-
-img.titanic {
-        float: left;
-        padding-top:50px;
-        padding-left:225px;
-        width:400px;
-        height: 500px;
-        margin:auto;
-        display:block;
-        padding-bottom: 50px;
-}
-
-img.men_and_women {
-        height:25%;
-        width:25%;
-        float:left;
-        padding-top: 100px;
-        padding: 80px;
-        padding-bottom: 200px;
-        display:block;
-        margin-left: -500px;
-}
-
-img.ages {
-        float: left;
-        margin-right: 0px;
-        height: 300px;
-        width: 600px;
-        padding-top: 200px;
-}
-
-.textbox{
-        float: right;
-        text-align:center;
-        border-style: solid;
-        padding-top: 30px;
-        border-radius:4px;
-        font-size:16px;
-        text-vertical-align:middle;
-        margin-right: 100px;
-        width:300px;
-        height:525px;
-        padding-right: 100px;
-        font-color: black;
-}
-
-.small{
-        height:250px;
-        width: 500px;
-        padding: 0px;
-}
-
-.medium{
-        padding:0px;
-        width:500px;
-        height: 520px;
+.spacing {
+  background-color: inherit;
 }
