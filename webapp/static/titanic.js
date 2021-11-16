@@ -48,18 +48,24 @@ function onDeceasedButtonClicked() {
         alive = false;
         all = false;
         deceased = true;
+	document.getElementById('deceased').style.background='#404040';
+	document.getElementById('deceased').style.color = '#FFFFFF';
 }
 
 function onAliveButtonClicked() {
         alive = true;
         all = false;
         deceased = false;
+	resetToDefaultStyle(["'all'", "'deceased'"]);
+	clickedOnStyling('alive');
 }
 
 function onAllButtonClicked() {
         alive = false;
         deceased = false;
         all = true;
+	resetToDefaultStyle(["'alive'", "'deceased'"]);
+	clickedOnStyling('all');
 }
 
 function onFirstClassButtonClicked() {
@@ -160,4 +166,17 @@ function formatOutput(url, resultsBox) {
 		console.log(error);
 	});
 
+}
+
+function resetToDefaultStyle(buttonsToReset) {
+	for (var i = 0; i < buttonsToReset.length; i++) {
+		console.log(buttonsToReset[i]);
+		document.getElementById(buttonsToReset[i]).style.background = '#add8e6';
+	        document.getElementById(buttonsToReset[i]).style.color = '#FFFFFF';
+	}
+}
+
+function clickedOnStyling(buttonToStyle) {
+	document.getElementById(buttonToStyle).style.background='#404040';
+	document.getElementById(buttonToStyle).style.color = '#FFFFFF';
 }
