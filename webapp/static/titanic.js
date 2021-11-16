@@ -8,33 +8,34 @@ deceased = false;
 alive = false;
 all = true;
 window.onload = initialize;
+var deceasedButton, aliveButton, allButton, firstClassButton, secondClassButton, thirdClassButton, womanButton, manButton, babyButton, childButton, youthButton, adultButton, seniorButton;
 
 function initialize() {
-        let deceasedButton = document.getElementById('deceased');
+        deceasedButton = document.getElementById('deceased');
         deceasedButton.onclick = onDeceasedButtonClicked;
-        let aliveButton = document.getElementById('survivors');
+        aliveButton = document.getElementById('survivors');
         aliveButton.onclick = onAliveButtonClicked;
-        let allButton = document.getElementById('all');
+        allButton = document.getElementById('all');
         allButton.onclick = onAllButtonClicked;
-        let firstClassButton = document.getElementById('firstClass');
+        firstClassButton = document.getElementById('firstClass');
         firstClassButton.onclick = onFirstClassButtonClicked;
-        let secondClassButton = document.getElementById('secondClass');
+       	secondClassButton = document.getElementById('secondClass');
         secondClassButton.onclick = onSecondClassButtonClicked;
-        let thirdClassButton = document.getElementById('thirdClass');
+        thirdClassButton = document.getElementById('thirdClass');
         thirdClassButton.onclick = onThirdClassButtonClicked;
-        let womanButton = document.getElementById('women');
+        womanButton = document.getElementById('women');
         womanButton.onclick = onWomanButtonClicked;
-        let manButton = document.getElementById('men');
+        manButton = document.getElementById('men');
         manButton.onclick = onManButtonClicked;
-	let babyButton = document.getElementById('0-5');
+	babyButton = document.getElementById('0-5');
 	babyButton.onclick = onBabyButtonClicked;
-	let childButton = document.getElementById('6-14');
+	childButton = document.getElementById('6-14');
 	childButton.onclick = onChildButtonClicked;
-	let youthButton = document.getElementById('15-24');
+	youthButton = document.getElementById('15-24');
 	youthButton.onclick = onYouthButtonClicked;
-	let adultButton = document.getElementById('25-64');
+	adultButton = document.getElementById('25-64');
 	adultButton.onclick = onAdultButtonClicked;
-	let seniorButton = document.getElementById('65+');
+	seniorButton = document.getElementById('65+');
 	seniorButton.onclick = onSeniorButtonClicked;
 }
 
@@ -48,20 +49,21 @@ function onDeceasedButtonClicked() {
         alive = false;
         all = false;
         deceased = true;
-        //document.getElementById('deceased').style.background='#404040';
-        //document.getElementById('deceased').style.color = '#FFFFFF';
+	updateSelection(deceasedButton, [aliveButton, allButton]);
 }
 
 function onAliveButtonClicked() {
         alive = true;
         all = false;
         deceased = false;
+	updateSelection(aliveButton, [deceasedButton, allButton]);
 }
 
 function onAllButtonClicked() {
         alive = false;
         deceased = false;
         all = true;
+	updateSelection(allButton, [aliveButton, deceasedButton]);
 }
 
 function onFirstClassButtonClicked() {
@@ -70,6 +72,7 @@ function onFirstClassButtonClicked() {
         url += '?class=1';
         var outputString = '<p>' + getCurrentStatus() + 'in first class: ';
         formatOutput(url, 'class_table', outputString);
+	updateSelection(firstClassButton, [secondClassButton, thirdClassButton]);
 }
 
 function onSecondClassButtonClicked() {
@@ -78,6 +81,7 @@ function onSecondClassButtonClicked() {
         url += '?class=2';
         var outputString = '<p>' + getCurrentStatus() + 'in second class: ';
         formatOutput(url, 'class_table', outputString);
+	updateSelection(secondClassButton, [firstClassButton, thirdClassButton]);
 }
 
 function onThirdClassButtonClicked() {
@@ -86,6 +90,7 @@ function onThirdClassButtonClicked() {
         url += '?class=3';
         var outputString = '<p>' + getCurrentStatus() + 'in third class: ';
         formatOutput(url, 'class_table', outputString);
+	updateSelection(thirdClassButton, [secondClassButton, firstClassButton]);
 }
 
 function addStatusToURL(url) {
@@ -107,6 +112,7 @@ function onWomanButtonClicked() {
         url += '?sex=female';
         var outputString = '<p>' + getCurrentStatus() + 'who were women: ';
         formatOutput(url, 'sex_box', outputString);
+	updateSelection(womanButton, [manButton]);
 }
 
 function onManButtonClicked() {
@@ -115,6 +121,7 @@ function onManButtonClicked() {
         url += '?sex=male';
         var outputString = '<p>' + getCurrentStatus() + 'who were men: ';
         formatOutput(url, 'sex_box', outputString);
+	updateSelection(manButton, [womanButton]);
 }
 
 function onBabyButtonClicked(){
@@ -123,6 +130,7 @@ function onBabyButtonClicked(){
         url += '?start_age=0&end_age=5';
         var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 0-5: ';
         formatOutput(url, 'age_box', outputString);
+	updateSelection(babyButton, [childButton, youthButton, adultButton, seniorButton]);
 }
 
 function onChildButtonClicked(){
@@ -131,6 +139,7 @@ function onChildButtonClicked(){
         url += '?start_age=6&end_age=14';
         var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 6-14: ';
         formatOutput(url, 'age_box', outputString);
+	updateSelection(childButton, [babyButton, youthButton, adultButton, seniorButton]);
 }
 
 function onYouthButtonClicked() {
@@ -139,6 +148,7 @@ function onYouthButtonClicked() {
         url += '?start_age=15&end_age=24';
         var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 15-24: ';
         formatOutput(url, 'age_box', outputString);
+	updateSelection(youthButton, [childButton, babyButton, adultButton, seniorButton]);
 }
 
 function onAdultButtonClicked() {
@@ -147,6 +157,7 @@ function onAdultButtonClicked() {
         url += '?start_age=25&end_age=64';
         var outputString = '<p>' + getCurrentStatus() + 'in between the ages of 25-64: ';
         formatOutput(url, 'age_box', outputString);
+	updateSelection(adultButton, [childButton, youthButton, babyButton, seniorButton]);
 }
 
 function onSeniorButtonClicked() {
@@ -155,6 +166,7 @@ function onSeniorButtonClicked() {
         url += '?start_age=65';
         var outputString = '<p>' + getCurrentStatus() + 'over the age of 65: ';
         formatOutput(url, 'age_box', outputString);
+	updateSelection(seniorButton, [childButton, youthButton, adultButton, babyButton]);
 }
 
 function getCurrentStatus(){
@@ -184,4 +196,13 @@ function formatOutput(url, resultsBox, outputStringPortion) {
                 console.log(error);
         });
 
+}
+
+function updateSelection(selectedButton, otherButtonsList) {
+	for (var i = 0; i < otherButtonsList.length; i++) {
+		if (otherButtonsList[i].classList.contains('selected')){
+			otherButtonsList[i].classList.remove('selected');
+		}
+	}
+	selectedButton.classList.add('selected');
 }
