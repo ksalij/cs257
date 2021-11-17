@@ -1,57 +1,45 @@
-var maleSurvivors;
-var deadMales;
-var femaleSurvivors = [];
-var deadFemales = [];
-
-function initialize() {
-	maleSurvivors = 
-}
-
-anychart.onDocumentReady(function() {
-
+anychart.onDocumentReady(function() {	
 	var sexData = [
-		{x: "Number of male survivors", value: getInfo(getAPIBaseURL() + '/count/alive/?sex=male')},
-		{x: "Number of deceased men", value: getInfo(getAPIBaseURL() + '/count/dead/?sex=male')},
-		{x: "Number of female survivors", value: getInfo(getAPIBaseURL() + '/count/alive/?sex=female')},
-		{x: "Number of deceased women", value: getInfo(getAPIBaseURL() + '/count/dead/?sex=female')},
+		{x: "Number of male survivors", value: 109},
+		{x: "Number of deceased men", value: 486},
+		{x: "Number of female survivors", value: 233},
+		{x: "Number of deceased women", value: 81},
 	];
-
-	console.log(getInfo(getAPIBaseURL() + '/count/alive/?sex=male'));
-/*
+	
 	var classData = [
-		{x: "Number of male survivors", value: 223553265},
-		{x: "Number of deceased men", value: 38929319},
-		{x: "Number of female survivors", value: 2932248},
-		{x: "Number of deceased women", value: 14674252},
-	];
-*/
+		{x: "Number of first class survivors", value: 136},
+	 	{x: "Number of deceased first class", value: 80},
+	 	{x: "Number of second class survivors", value: 87},
+	 	{x: "Number of deceased second class", value: 97},
+		{x: "Number of third class survivors", value: 119},
+		{x: "Number of deceased third class", value: 372},
+	 	];
+
+	var ageData = [
+		{x: "Number of 0-5 year old passengers", value: 44},
+                {x: "Number of 6-14 year old passengers", value: 33},
+                {x: "Number of 15-24 year old passengers", value: 199},
+                {x: "Number of 25-64 year old passengers", value: 425},
+                {x: "Number of 65+ year old passengers", value: 11},
+                ];
+
 	// create the chart
 	var sexChart = anychart.pie();
-
+	var classChart = anychart.pie();
+	var ageChart = anychart.pie();
 	// set the chart title
 	sexChart.title("Statistics of Men and Women on the Titanic");
-
+	classChart.title("Statistics of Classes on the Titanic");
+	ageChart.title("Statistics of Various Ages on the Titanic");
 	// add the data
 	sexChart.data(sexData);
-
+	classChart.data(classData);
+	ageChart.data(ageData);
 	// display the chart in the container
 	sexChart.container('sex_chart_container');
 	sexChart.draw();
+	classChart.container('class_chart_container');
+	classChart.draw();
+	ageChart.container('age_chart_container');
+	ageChart.draw();
 });
-
-function getAPIBaseURL() {
-	var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/api';
-        return baseURL;
-}
-
-function getInfo(url) {
-	fetch(url, {method: 'get'})
-	.then((response) => response.json())
-        .then(function(response) {
-		console.log(typeOf(response));
-		return response;
-	})
-	.catch(function(error) {
-		console.log(error);
-        });
-}

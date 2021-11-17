@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Charts Page</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chartspage.css') }}" />
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}" />>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}" />
 		<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
 		<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
 		<script type="text/javascript" src="static/chartspage.js"></script>
@@ -25,43 +25,8 @@
 
 		<h2>Charts</h2>
 
-		<div class = "chart_container" id = "sex_chart_container">
-			<ul class = "chart_legend legend legend-circle">
-				<li>color 1</li>
-				<li>color 2</li>
-				<li>color 3</li>
-				<li>color 4</li>
-				<li>color 5</li>
-			</ul>
-			<p>
-				Information about the chart to the left!
-			</p>
-		</div>
-		<div class = "chart_container">
-			<img class = "chart" src="https://www.cdc.gov/wcms/4.0/cdc-wp/data-presentation/images/Pie_Example_Viz.png">
-			<ul class = "chart_legend legend legend-circle">
-				<li>color 1</li>
-				<li>color 2</li>
-				<li>color 3</li>
-				<li>color 4</li>
-				<li>color 5</li>
-			</ul>
-			<p>
-				Information about the chart to the left!
-			</p>
-		</div>
-		<div class = "chart_container">
-			<img class = "chart" src="https://www.cdc.gov/wcms/4.0/cdc-wp/data-presentation/images/Pie_Example_Viz.png">
-			<ul class = "chart_legend legend legend-circle">
-				<li>color 1</li>
-				<li>color 2</li>
-				<li>color 3</li>
-				<li>color 4</li>
-				<li>color 5</li>
-			</ul>
-			<p>
-				Information about the chart to the left!
-			</p>
-		</div>
+		<div class = "chart_container" id = "sex_chart_container"></div>
+		<div class = "chart_container" id = "class_chart_container"></div>
+		<div class = "chart_container" id = "age_chart_container"></div>
 	</body>
 </html>
