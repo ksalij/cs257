@@ -1,15 +1,16 @@
 /*searchpage.js by Kiri Salij and Lysander Miller */
 
 window.onload = initialize;
+var nameSortingButton, ageSortingButton, passengerIDSortingButton, classSortingButton;
 
 function initialize() {
-	let nameSortingButton = document.getElementById('name');
+	nameSortingButton = document.getElementById('name');
 	nameSortingButton.onclick = onNameSortingButtonClicked;
-	let ageSortingButton = document.getElementById('age');
+	ageSortingButton = document.getElementById('age');
 	ageSortingButton.onclick = onAgeSortingButtonClicked;
-	let passengerIDSortingButton = document.getElementById('passenger');
+	passengerIDSortingButton = document.getElementById('passenger');
 	passengerIDSortingButton.onclick = onPassengerIDSortingButtonClicked;
-	let classSortingButton = document.getElementById('class');
+	classSortingButton = document.getElementById('class');
 	classSortingButton.onclick = onClassSortingButtonClicked;
 
 }
@@ -23,21 +24,25 @@ function getAPIBaseURL() {
 function onNameSortingButtonClicked() {
 	var url = getAPIBaseURL() + '/all/?sort=name';
 	formattingOutput(url);
+	updateSelection(nameSortingButton, [ageSortingButton, passengerIDSortingButton, classSortingButton]);
 }
 
 function onAgeSortingButtonClicked() {
 	var url = getAPIBaseURL() + '/all/?sort=age';
         formattingOutput(url);
+	updateSelection(ageSortingButton, [nameSortingButton, passengerIDSortingButton, classSortingButton]);
 }
 
 function onPassengerIDSortingButtonClicked(){
 	var url = getAPIBaseURL() + '/all/';
         formattingOutput(url);
+	updateSelection(passengerIDSortingButton, [ageSortingButton, nameSortingButton, classSortingButton]);
 }
 
 function onClassSortingButtonClicked() {
 	var url = getAPIBaseURL() + '/all/?sort=class';
         formattingOutput(url);
+	updateSelection(classSortingButton, [ageSortingButton, passengerIDSortingButton, nameSortingButton]);
 }
 
 
@@ -63,3 +68,11 @@ function formattingOutput(url) {
 }
 
 
+function updateSelection(selectedButton, otherButtonsList) {
+	for (var i = 0; i < otherButtonsList.length; i++) {
+		if (otherButtonsList[i].classList.contains('selected')){
+			otherButtonsList[i].classList.remove('selected');
+		}
+	}
+	selectedButton.classList.add('selected');
+}

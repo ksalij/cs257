@@ -40,3 +40,8 @@ button:hover {
 #layout {
 	display: flex;
 }
+
+.selected {
+	background-color: grey;
+	color: white;
+}
