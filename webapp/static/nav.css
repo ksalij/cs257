@@ -4,11 +4,11 @@
 /*Home button link style */
 .home a:link {
         text-decoration: none;
-        color: blue;
+        color: midnightblue;
 }
 .home a:visited {
         text-decoration: none;
-        color: blue;
+        color: midnightblue;
 }
 .home a:hover {
   color: white;
@@ -18,18 +18,19 @@
 }
 
 img.search{
-        width:50px;
-        height:30px;
+        width:26px;
+        height:25px;
         float:left;
         padding-top: 10px;
 }
 
 h1.home{
         float:left;
-        font-size: 20px;
+        font-size: 22px;
         border:black;
         border-style:solid;
-        padding:5px 5px;
+        padding:7px 7px;
+        margin: 0;
 }
 
 h1.home:hover {
@@ -42,7 +43,7 @@ ul.horizontal-navbar {
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #f1f1f1;
+        background-color: lightblue;
 }
 
 ul.horizontal-navbar li {

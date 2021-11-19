@@ -150,7 +150,7 @@ def get_count(status):
 
     return json.dumps(passenger_count)
 
-@api.route('/help')
+@api.route('/help/')
 def get_help():
     help_text = open('templates/help.txt').read()
     return flask.Response(help_text, mimetype='text/plain')

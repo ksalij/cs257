@@ -20,9 +20,11 @@
                 </ul>
 
                 <h2>Search</h2>
-                <img class = "search_img" src="https://www.pngkey.com/png/detail/87-872166_magnifying-glass-icon-transparent.png">
-		<input id="search" type="text" class="search_bar" />
-		<button id="enter">Enter</button>
+                <div id= "search_div">
+                  <img class = "search_img" src="{{ url_for('static', filename='search.png')}}">
+                  <input id="search" type="text" class="search_bar" />
+                  <button id="enter">Enter</button>
+                </div>
                 <table class="results" id="search_box"></table>
         </body>
 </html>

@@ -17,13 +17,10 @@
 
 .container {
   display: flex;
-  /* align-items: center; */
 }
 
 .titanic, .men_and_women, img.ages {
-  width: 50%;
-  height: 50%;
-
+  width: 35%;
 }
 
 .button {
@@ -44,7 +41,7 @@
 
 .selected {
 	background-color: grey;
-        color: white;
+  color: white;
 }
 
 .buttons {
@@ -59,3 +56,6 @@
   width: 11%;
 }
 
+p {
+  padding: 10px;
+}
