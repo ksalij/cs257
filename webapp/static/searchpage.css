@@ -39,3 +39,26 @@ button{
   display: inline-block;
   cursor: pointer;
 }
+
+button:hover {
+  background-color: midnightblue;
+  color: white;
+}
+
+#layout {
+	display: flex;
+}
+
+#sort-header {
+	background-color: midnightblue;
+	color: white;
+	padding: 10px 15px;
+}
+
+.vertical-sort {
+  list-style-type: none;
+  background-color: lightblue;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
