@@ -62,3 +62,8 @@ button:hover {
   padding: 0;
   margin: 0;
 }
+
+.selected {
+	background-color: grey;
+	color: white;
+}

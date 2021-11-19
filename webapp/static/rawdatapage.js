@@ -1,4 +1,4 @@
-/*searchpage.js by Kiri Salij and Lysander Miller */
+/*rawdatapage.js by Kiri Salij and Lysander Miller */
 
 window.onload = initialize;
 var nameSortingButton, ageSortingButton, passengerIDSortingButton, classSortingButton;
