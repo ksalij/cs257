@@ -105,7 +105,7 @@ function addStatusToURL(url) {
         }
         return url;
 }
-	
+
 function onWomanButtonClicked() {
         var url = getAPIBaseURL() + '/count';
         url = addStatusToURL(url);
@@ -186,7 +186,7 @@ function formatOutput(url, resultsBox, outputStringPortion) {
         .then((response) => response.json())
         .then(function(list) {
                 var contents = '';
-                contents += outputStringPortion + list + '</p>';
+                contents += outputStringPortion + '<strong>' + list + '</strong>' + '</p>';
                 var resultsElement = document.getElementById(resultsBox);
                 if (resultsElement) {
                         resultsElement.innerHTML = contents;

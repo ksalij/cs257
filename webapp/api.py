@@ -134,8 +134,7 @@ def get_count(status):
         tuple_arguments.append(sex)
 
     query += ';'
-    #print(query)
-    #print(tuple_arguments)
+    
     passenger_count = None
     try:
         connection = get_connection()
@@ -151,6 +150,7 @@ def get_count(status):
     return json.dumps(passenger_count)
 
 @api.route('/help/')
+@api.route('/help')
 def get_help():
     help_text = open('templates/help.txt').read()
     return flask.Response(help_text, mimetype='text/plain')

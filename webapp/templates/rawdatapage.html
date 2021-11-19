@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Raw Data</title>
+		<title>Raw Data - Titanic API</title>
 		<script type="text/javascript" src="static/rawdatapage.js"></script>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='rawdatapage.css') }}" />
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}" />
@@ -17,10 +17,18 @@
 			<li><a href = "chartspage">Charts</a></li>
 			<li><a href="index">Home</a></li>
 			<li><a href="searchpage">Search</a></li>
-			<li><a href = "searchpage"><img class = "search" src="{{ url_for('static', filename='search.png')}}"></a></li>
+			<li><img class = "search" src="{{ url_for('static', filename='search.png')}}"></li>
 		</ul>
 
 		<h2>Raw Data</h2>
+
+		<div id = "info">
+			<p>Just a little bit of information about certain columns that are more ambiguous than others.
+			The sibsp column is the number of siblings/spouses also aboard the titanic. The parch column
+			is the number of parents/children also aboard the titanic. Embarked is the port of embarkation:
+		 	C = Cherbourg, Q = Queenstown, S = Southampton. The ages that are listed as xx.5 are estimates.</p>
+		</div>
+
 		<div id="layout">
 			<ul class = "vertical-sort">
 				<li id="sort-header">Sort By</li>
