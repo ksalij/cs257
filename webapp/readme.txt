@@ -20,6 +20,9 @@ feature. Another Note: We noticed in our own testing and from the code review
 that it would be nice if the order of clicking the all/deceased/survived buttons
 and the classes/sex/ages buttons didn't matter, that is you could click 1st
 class and then deceased and it would work rather than needing to click deceased
-before 1st class. However, this proved more effort than it seemed to be worth,
-but we just wanted to acknowledge that we know about the issue and decided to
-focus on other things.
+before 1st class. However, while trying to implement this, we ran into a ton of 
+problems with the get method returning promises instead of results when called. 
+While we spent a lot of time trying to work around this, using global variables and
+focusing on what was in what method, eventually we saw that implementing 
+this proved more effort than it seemed to be worth. So, we acknowledge that we know
+about this issue but we decided to focus our time on other aspects of the project.
