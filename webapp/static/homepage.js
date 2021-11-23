@@ -1,6 +1,6 @@
 /*
- * titanic.js
- * Kiri Salij and Lysander Miller, 9 November 2021
+ * homepage.js
+ * Kiri Salij and Lysander Miller, 23 November 2021
  */
 
 
@@ -93,6 +93,7 @@ function onThirdClassButtonClicked() {
 	updateSelection(thirdClassButton, [secondClassButton, firstClassButton]);
 }
 
+/*adds to the URL based on whether the deceased, survivors, or all button is currently selected*/
 function addStatusToURL(url) {
         if (alive==true){
                 url += '/alive/';
@@ -169,6 +170,7 @@ function onSeniorButtonClicked() {
 	updateSelection(seniorButton, [childButton, youthButton, adultButton, babyButton]);
 }
 
+/*returns a string based on whether the survivors, deceased, or all button is clicked. This string is then used in formatOutput*/
 function getCurrentStatus(){
         if (deceased == true) {
                 return "Number of passengers who did not survive ";
@@ -198,6 +200,7 @@ function formatOutput(url, resultsBox, outputStringPortion) {
 
 }
 
+/*Changes the html of homepage.html in order for css to be applied when a button is selected*/
 function updateSelection(selectedButton, otherButtonsList) {
 	for (var i = 0; i < otherButtonsList.length; i++) {
 		if (otherButtonsList[i].classList.contains('selected')){

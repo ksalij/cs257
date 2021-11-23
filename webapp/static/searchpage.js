@@ -1,4 +1,6 @@
-/*searchpage.js by Kiri Salij and Lysander Miller */
+/*searchpage.js by Kiri Salij and Lysander Miller
+ * Last edited 23 November 2021
+ */
 
 window.onload = initialize;
 var nameSortingButton, ageSortingButton, passengerIDSortingButton, classSortingButton;
@@ -33,6 +35,7 @@ function getAPIBaseURL() {
 	return baseURL;
 }
 
+//If there is a search word (if not search word will be null) it adds the search word to the URL
 function addSearchWordToURLIfNotNull(url) {
 	if (searchWordElement != '') {
 		url += '?search=' + searchWordElement;
@@ -107,7 +110,7 @@ function formattingOutput(url) {
 	});
 }
 
-
+//Changes the html of searchpage.html in order for css to be applied when a button is selected
 function updateSelection(selectedButton, otherButtonsList) {
 	for (var i = 0; i < otherButtonsList.length; i++) {
 		if (otherButtonsList[i].classList.contains('selected')){

@@ -1,4 +1,14 @@
+/*
+ * chartspage.js
+ * By Kiri Salij and Lysander Miller
+ * Last edited: 23 November 2021
+ * Uses AnyChart, a JavaScript charting library 
+ * */
+
 anychart.onDocumentReady(function() {	
+
+	//Data taken from the database but hardcoded in for reasons explained in readme.txt
+
 	var sexData = [
 		{x: "Number of male survivors", value: 109},
 		{x: "Number of deceased men", value: 486},
@@ -23,11 +33,11 @@ anychart.onDocumentReady(function() {
                 {x: "Number of 65+ year old passengers", value: 11},
                 ];
 
-	// create the chart
+	// create the charts
 	var sexChart = anychart.pie();
 	var classChart = anychart.pie();
 	var ageChart = anychart.pie();
-	// set the chart title
+	// set the charts' titles
 	sexChart.title("Statistics of Men and Women on the Titanic");
 	classChart.title("Statistics of Classes on the Titanic");
 	ageChart.title("Statistics of Various Ages on the Titanic");
@@ -35,7 +45,7 @@ anychart.onDocumentReady(function() {
 	sexChart.data(sexData);
 	classChart.data(classData);
 	ageChart.data(ageData);
-	// display the chart in the container
+	// display the charts in their containers
 	sexChart.container('sex_chart_container');
 	sexChart.draw();
 	classChart.container('class_chart_container');

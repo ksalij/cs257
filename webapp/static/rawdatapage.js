@@ -1,4 +1,6 @@
-/*rawdatapage.js by Kiri Salij and Lysander Miller */
+/*rawdatapage.js by Kiri Salij and Lysander Miller
+ * Last edited 23 November 2021
+ */
 
 window.onload = initialize;
 var nameSortingButton, ageSortingButton, passengerIDSortingButton, classSortingButton;
@@ -67,7 +69,7 @@ function formattingOutput(url) {
 	});
 }
 
-
+//Changes the html of rawdatapage.html in order for specific css to be applied when that button is selected
 function updateSelection(selectedButton, otherButtonsList) {
 	for (var i = 0; i < otherButtonsList.length; i++) {
 		if (otherButtonsList[i].classList.contains('selected')){
