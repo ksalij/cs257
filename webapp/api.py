@@ -1,7 +1,7 @@
 '''
     api.py
     Kiri Salij and Lysander Miller
-    8 November 2021
+    23 November 2021
 
     Flask API for end-to-end webapp assignment
     CS 257 Software Design, Fall 2021
@@ -134,7 +134,7 @@ def get_count(status):
         tuple_arguments.append(sex)
 
     query += ';'
-    
+
     passenger_count = None
     try:
         connection = get_connection()

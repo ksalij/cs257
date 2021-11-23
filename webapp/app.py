@@ -1,7 +1,7 @@
 '''
     app.py
     Kiri Salij and Lysander Miller
-    8 November 2021
+    23 November 2021
 
     Flask app for end-to-end webapp assignment
     CS 257 Software Design Fall 2021
